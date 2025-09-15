@@ -15,8 +15,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3
       '@codemod-utils/ast-template-tag':
-        specifier: ^0.5.1
-        version: 0.5.1
+        specifier: ^0.6.0
+        version: 0.6.0
       '@codemod-utils/blueprints':
         specifier: ^2.0.3
         version: 2.0.3
@@ -215,8 +215,8 @@ packages:
     resolution: {integrity: sha512-/TmvlT11e9g6ypPUt0VMsrPbySzZguaCD6cQlIyPzo0ydTNj1mg+IJTpVQOXUW+tPhbolICg5kdsaB4M0dbkFw==}
     engines: {node: 20.* || >= 22}
 
-  '@codemod-utils/ast-template-tag@0.5.1':
-    resolution: {integrity: sha512-1SR2JbLrCpLPuNDFax8ohAuglqXkVggY6U7+0kN8tC4hLa5MFYWme7SzNLDmyA+0DDQXhQ9CRXxaHhyxEKiGsA==}
+  '@codemod-utils/ast-template-tag@0.6.0':
+    resolution: {integrity: sha512-J4CS4vBojG3tpHBq0EBs3wYokuJF5KPyXVJWAiyyDEaDbfacRYHXqCke6F6hVFTs0Vl9w9uDQTHDIeoiRpQXOA==}
     engines: {node: 20.* || >= 22}
 
   '@codemod-utils/ast-template@2.0.3':
@@ -2493,7 +2493,7 @@ snapshots:
       '@babel/parser': 7.28.4
       recast: 0.23.11
 
-  '@codemod-utils/ast-template-tag@0.5.1':
+  '@codemod-utils/ast-template-tag@0.6.0':
     dependencies:
       '@codemod-utils/ast-javascript': 2.0.7
       content-tag: 4.0.0
