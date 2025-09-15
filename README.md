@@ -1,6 +1,6 @@
-[![This project uses GitHub Actions for continuous integration.](https://github.com/ijlee2/ember-codemod-args-to-signature/actions/workflows/ci.yml/badge.svg)](https://github.com/ijlee2/ember-codemod-args-to-signature/actions/workflows/ci.yml)
+[![This project uses GitHub Actions for continuous integration.](https://github.com/ijlee2/ember-codemod-add-component-signatures/actions/workflows/ci.yml/badge.svg)](https://github.com/ijlee2/ember-codemod-add-component-signatures/actions/workflows/ci.yml)
 
-# ember-codemod-args-to-signature
+# ember-codemod-add-component-signatures
 
 _Codemod to add component signatures_
 
@@ -20,14 +20,14 @@ You can run this codemod to get started.
 
 <div align="center">
   <figure>
-    <img alt="A code diff to show what template-only components can look like before and after running ember-codemod-args-to-signature" src="https://github.com/ijlee2/ember-codemod-args-to-signature/assets/16869656/55115b27-682e-4f5a-9a03-36d7aa1cc0c2" width="640">
+    <img alt="A code diff to show what template-only components can look like before and after running ember-codemod-add-component-signatures" src="https://github.com/ijlee2/ember-codemod-add-component-signatures/assets/16869656/55115b27-682e-4f5a-9a03-36d7aa1cc0c2" width="640">
     <br>
     <figcaption>Template-only components</figcaption>
   </figure>
   <br><br>
   <figure>
-    <img alt="A code diff to show what Glimmer components can look like before and after running ember-codemod-args-to-signature" src="https://github.com/ijlee2/ember-codemod-args-to-signature/assets/16869656/4feb1fcd-5a31-419e-9feb-2af99073ae75" width="640">
-    <img alt="Another code diff for a Glimmer component" src="https://github.com/ijlee2/ember-codemod-args-to-signature/assets/16869656/c8c1c9b0-28a1-4957-9c49-5cc853499a4f" width="640">
+    <img alt="A code diff to show what Glimmer components can look like before and after running ember-codemod-add-component-signatures" src="https://github.com/ijlee2/ember-codemod-add-component-signatures/assets/16869656/4feb1fcd-5a31-419e-9feb-2af99073ae75" width="640">
+    <img alt="Another code diff for a Glimmer component" src="https://github.com/ijlee2/ember-codemod-add-component-signatures/assets/16869656/c8c1c9b0-28a1-4957-9c49-5cc853499a4f" width="640">
     <br>
     <figcaption>Glimmer components</figcaption>
   </figure>
@@ -40,7 +40,7 @@ Step 1. Quickly migrate.
 
 ```sh
 cd <path/to/your/project>
-npx ember-codemod-args-to-signature <arguments>
+npx ember-codemod-add-component-signatures <arguments>
 ```
 
 Step 2. Review the package.
@@ -67,9 +67,9 @@ Nice to do:
 You must pass `--type` to indicate what type of project you have.
 
 ```sh
-npx ember-codemod-args-to-signature --type app
-npx ember-codemod-args-to-signature --type v1-addon
-npx ember-codemod-args-to-signature --type v2-addon
+npx ember-codemod-add-component-signatures --type app
+npx ember-codemod-add-component-signatures --type v1-addon
+npx ember-codemod-add-component-signatures --type v2-addon
 ```
 
 <details>
@@ -79,7 +79,7 @@ npx ember-codemod-args-to-signature --type v2-addon
 By default, an Octane project has the flat component structure. Pass `--component-structure` to indicate otherwise.
 
 ```sh
-npx ember-codemod-args-to-signature --component-structure nested
+npx ember-codemod-add-component-signatures --component-structure nested
 ```
 
 </details>
@@ -91,7 +91,7 @@ npx ember-codemod-args-to-signature --component-structure nested
 By default, the codemod ignores component classes written in `*.{js,gjs}`. Pass `--convert-javascript` to allow the codemod to change the file extension to `*.{ts,gts}` and add the component signature.
 
 ```sh
-npx ember-codemod-args-to-signature --convert-javascript
+npx ember-codemod-add-component-signatures --convert-javascript
 ```
 
 </details>
@@ -103,7 +103,7 @@ npx ember-codemod-args-to-signature --convert-javascript
 Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
 
 ```sh
-npx ember-codemod-args-to-signature --root <path/to/your/project>
+npx ember-codemod-add-component-signatures --root <path/to/your/project>
 ```
 
 </details>
@@ -122,7 +122,7 @@ cd <path/to/cloned/repo>
 pnpm build
 
 # Run codemod
-./dist/bin/ember-codemod-args-to-signature.js --root <path/to/your/project>
+./dist/bin/ember-codemod-add-component-signatures.js --root <path/to/your/project>
 ```
 
 

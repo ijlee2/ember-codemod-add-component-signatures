@@ -1,5 +1,5 @@
 {
-  "name": "ember-codemod-args-to-signature",
+  "name": "ember-codemod-add-component-signatures",
   "version": "3.2.0",
   "description": "Codemod to add component signatures",
   "keywords": [
@@ -13,13 +13,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ijlee2/ember-codemod-args-to-signature.git"
+    "url": "https://github.com/ijlee2/ember-codemod-add-component-signatures.git"
   },
   "license": "MIT",
   "author": "Isaac J. Lee",
   "type": "module",
   "main": "dist/src/index.js",
-  "bin": "dist/bin/ember-codemod-args-to-signature.js",
+  "bin": "dist/bin/ember-codemod-add-component-signatures.js",
   "directories": {
     "test": "tests"
   },
