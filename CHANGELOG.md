@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- [#73](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/73) Renamed package to ember-codemod-add-component-signatures ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#74](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/74) Updated @codemod-utils/\* ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.2.0
 
 ### Minor Changes
