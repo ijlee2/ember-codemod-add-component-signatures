@@ -1,6 +1,6 @@
-# Contributing to ember-codemod-args-to-signature
+# Contributing to ember-codemod-add-component-signatures
 
-Open source projects like `ember-codemod-args-to-signature` live on your words of encouragement and contribution. Please give feedback, report issues, or submit pull requests!
+Open source projects like `ember-codemod-add-component-signatures` live on your words of encouragement and contribution. Please give feedback, report issues, or submit pull requests!
 
 Here are some guidelines to help you and everyone else.
 
@@ -14,13 +14,13 @@ Here are some guidelines to help you and everyone else.
 1. Fork and clone this repo.
 
     ```sh
-    git clone git@github.com:<your-github-handle>/ember-codemod-args-to-signature.git
+    git clone git@github.com:<your-github-handle>/ember-codemod-add-component-signatures.git
     ```
 
 1. Change directory.
 
     ```sh
-    cd ember-codemod-args-to-signature
+    cd ember-codemod-add-component-signatures
     ```
 
 1. Use [`pnpm`](https://pnpm.io/installation) to install dependencies.
@@ -100,7 +100,7 @@ Here are some guidelines to help you and everyone else.
     git push origin tag-0.1.2
     ```
 
-1. [Create a tag](https://github.com/ijlee2/ember-codemod-args-to-signature/releases/new) and provide release notes. The tag name should match the package version (e.g. `0.1.2`).
+1. [Create a tag](https://github.com/ijlee2/ember-codemod-add-component-signatures/releases/new) and provide release notes. The tag name should match the package version (e.g. `0.1.2`).
 
 1. Publish the package.
 

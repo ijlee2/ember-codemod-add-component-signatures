@@ -8,7 +8,7 @@ import { runCodemod } from '../src/index.js';
 import type { CodemodOptions } from '../src/types/index.js';
 
 // Provide a title to the process in `ps`
-process.title = 'ember-codemod-args-to-signature';
+process.title = 'ember-codemod-add-component-signatures';
 
 // Set codemod options
 const argv = yargs(hideBin(process.argv))

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-COMMAND="ember-codemod-args-to-signature"
+COMMAND="ember-codemod-add-component-signatures"
 ENVIRONMENT=$1
 
 if [ $ENVIRONMENT = "--production" ]

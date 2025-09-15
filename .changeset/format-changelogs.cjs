@@ -1,6 +1,6 @@
 const { getInfo } = require('@changesets/get-github-info');
 
-const repo = 'ijlee2/ember-codemod-args-to-signature';
+const repo = 'ijlee2/ember-codemod-add-component-signatures';
 
 async function analyze(changeset) {
   const { links: info } = await getInfo({
