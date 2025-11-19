@@ -12,7 +12,7 @@ export default WidgetsWidget4MemoActions;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Widgets::Widget4::Memo::Actions': typeof WidgetsWidget4MemoActions;
+    'Widgets::Widget-4::Memo::Actions': typeof WidgetsWidget4MemoActions;
     'widgets/widget-4/memo/actions': typeof WidgetsWidget4MemoActions;
   }
 }

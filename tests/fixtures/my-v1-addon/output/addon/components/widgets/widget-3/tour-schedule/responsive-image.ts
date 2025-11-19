@@ -24,7 +24,7 @@ export default class WidgetsWidget3TourScheduleResponsiveImage extends Component
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Widgets::Widget3::TourSchedule::ResponsiveImage': typeof WidgetsWidget3TourScheduleResponsiveImage;
+    'Widgets::Widget-3::TourSchedule::ResponsiveImage': typeof WidgetsWidget3TourScheduleResponsiveImage;
     'widgets/widget-3/tour-schedule/responsive-image': typeof WidgetsWidget3TourScheduleResponsiveImage;
   }
 }

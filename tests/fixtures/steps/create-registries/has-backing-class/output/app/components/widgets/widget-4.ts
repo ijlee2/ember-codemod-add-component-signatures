@@ -10,7 +10,7 @@ export default WidgetsWidget4;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Widgets::Widget4': typeof WidgetsWidget4;
+    'Widgets::Widget-4': typeof WidgetsWidget4;
     'widgets/widget-4': typeof WidgetsWidget4;
   }
 }
