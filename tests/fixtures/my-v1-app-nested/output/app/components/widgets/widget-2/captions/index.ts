@@ -54,7 +54,7 @@ export default class WidgetsWidget2Captions extends Component<WidgetsWidget2Capt
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Widgets::Widget2::Captions': typeof WidgetsWidget2Captions;
+    'Widgets::Widget-2::Captions': typeof WidgetsWidget2Captions;
     'widgets/widget-2/captions': typeof WidgetsWidget2Captions;
   }
 }

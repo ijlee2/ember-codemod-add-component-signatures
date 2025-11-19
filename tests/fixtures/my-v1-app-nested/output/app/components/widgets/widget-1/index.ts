@@ -11,7 +11,7 @@ export default WidgetsWidget1;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Widgets::Widget1': typeof WidgetsWidget1;
+    'Widgets::Widget-1': typeof WidgetsWidget1;
     'widgets/widget-1': typeof WidgetsWidget1;
   }
 }

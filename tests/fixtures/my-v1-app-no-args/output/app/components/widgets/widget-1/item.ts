@@ -13,7 +13,7 @@ export default WidgetsWidget1Item;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Widgets::Widget1::Item': typeof WidgetsWidget1Item;
+    'Widgets::Widget-1::Item': typeof WidgetsWidget1Item;
     'widgets/widget-1/item': typeof WidgetsWidget1Item;
   }
 }

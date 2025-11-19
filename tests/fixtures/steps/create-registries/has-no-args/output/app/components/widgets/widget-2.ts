@@ -30,7 +30,7 @@ export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    'Widgets::Widget2': typeof WidgetsWidget2;
+    'Widgets::Widget-2': typeof WidgetsWidget2;
     'widgets/widget-2': typeof WidgetsWidget2;
   }
 }
