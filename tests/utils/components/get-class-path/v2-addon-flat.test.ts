@@ -1,3 +1,5 @@
+import { normalize } from 'node:path';
+
 import { assert, test } from '@codemod-utils/tests';
 
 import type {
@@ -12,7 +14,7 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'flat',
     convertJavaScript: false,
-    projectRoot: 'tmp/my-v2-addon',
+    projectRoot: normalize('tmp/my-v2-addon'),
     src: 'src/components',
   };
 
@@ -20,15 +22,15 @@ function getPath(componentName: string): string {
 }
 
 test('utils | components | get-class-path > v2 addon (flat)', function () {
-  assert.strictEqual(getPath('index'), 'src/components/index.ts');
+  assert.strictEqual(getPath('index'), normalize('src/components/index.ts'));
 
   assert.strictEqual(
     getPath('navigation-menu'),
-    'src/components/navigation-menu.ts',
+    normalize('src/components/navigation-menu.ts'),
   );
 
   assert.strictEqual(
     getPath('widgets/widget-3'),
-    'src/components/widgets/widget-3.ts',
+    normalize('src/components/widgets/widget-3.ts'),
   );
 });

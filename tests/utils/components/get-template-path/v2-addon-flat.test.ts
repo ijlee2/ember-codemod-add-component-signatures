@@ -1,3 +1,5 @@
+import { normalize } from 'node:path';
+
 import { assert, test } from '@codemod-utils/tests';
 
 import type {
@@ -12,23 +14,23 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'flat',
     convertJavaScript: false,
-    projectRoot: 'tmp/my-v2-addon',
+    projectRoot: normalize('tmp/my-v2-addon'),
     src: 'src/components',
   };
 
   return getTemplatePath(componentName, extensions, options);
 }
 
-test('utils | components | get-class-path > v2 addon (flat)', function () {
-  assert.strictEqual(getPath('index'), 'src/components/index.hbs');
+test('utils | components | get-template-path > v2 addon (flat)', function () {
+  assert.strictEqual(getPath('index'), normalize('src/components/index.hbs'));
 
   assert.strictEqual(
     getPath('navigation-menu'),
-    'src/components/navigation-menu.hbs',
+    normalize('src/components/navigation-menu.hbs'),
   );
 
   assert.strictEqual(
     getPath('widgets/widget-3'),
-    'src/components/widgets/widget-3.hbs',
+    normalize('src/components/widgets/widget-3.hbs'),
   );
 });
