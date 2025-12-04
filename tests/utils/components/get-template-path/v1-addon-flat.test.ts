@@ -1,4 +1,5 @@
-import { normalizeFilePath } from '@codemod-utils/files';
+import { normalize } from 'node:path';
+
 import { assert, test } from '@codemod-utils/tests';
 
 import type {
@@ -13,7 +14,7 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'flat',
     convertJavaScript: false,
-    projectRoot: normalizeFilePath('tmp/my-v1-addon'),
+    projectRoot: normalize('tmp/my-v1-addon'),
     src: 'addon/components',
   };
 
@@ -21,18 +22,15 @@ function getPath(componentName: string): string {
 }
 
 test('utils | components | get-template-path > v1 addon (flat)', function () {
-  assert.strictEqual(
-    getPath('index'),
-    normalizeFilePath('addon/components/index.hbs'),
-  );
+  assert.strictEqual(getPath('index'), normalize('addon/components/index.hbs'));
 
   assert.strictEqual(
     getPath('navigation-menu'),
-    normalizeFilePath('addon/components/navigation-menu.hbs'),
+    normalize('addon/components/navigation-menu.hbs'),
   );
 
   assert.strictEqual(
     getPath('widgets/widget-3'),
-    normalizeFilePath('addon/components/widgets/widget-3.hbs'),
+    normalize('addon/components/widgets/widget-3.hbs'),
   );
 });

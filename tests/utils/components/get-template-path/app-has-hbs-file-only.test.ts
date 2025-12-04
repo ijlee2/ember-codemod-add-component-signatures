@@ -1,4 +1,5 @@
-import { normalizeFilePath } from '@codemod-utils/files';
+import { normalize } from 'node:path';
+
 import { assert, test } from '@codemod-utils/tests';
 
 import type {
@@ -13,7 +14,7 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'flat',
     convertJavaScript: false,
-    projectRoot: normalizeFilePath('tmp/my-v1-app'),
+    projectRoot: normalize('tmp/my-v1-app'),
     src: 'app/components',
   };
 
@@ -21,18 +22,15 @@ function getPath(componentName: string): string {
 }
 
 test('utils | components | get-template-path > app (has-hbs-file-only)', function () {
-  assert.strictEqual(
-    getPath('index'),
-    normalizeFilePath('app/components/index.hbs'),
-  );
+  assert.strictEqual(getPath('index'), normalize('app/components/index.hbs'));
 
   assert.strictEqual(
     getPath('navigation-menu'),
-    normalizeFilePath('app/components/navigation-menu.hbs'),
+    normalize('app/components/navigation-menu.hbs'),
   );
 
   assert.strictEqual(
     getPath('widgets/widget-3'),
-    normalizeFilePath('app/components/widgets/widget-3.hbs'),
+    normalize('app/components/widgets/widget-3.hbs'),
   );
 });
