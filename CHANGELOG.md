@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- [#77](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/77) Supported Windows ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.0.2
 
 ### Patch Changes
