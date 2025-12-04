@@ -1,3 +1,5 @@
+import { normalizeFilePath } from '@codemod-utils/files';
+
 import type {
   CodemodOptions,
   ComponentExtension,
@@ -9,7 +11,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: true,
-  projectRoot: 'tmp/my-v1-app-javascript',
+  projectRoot: normalizeFilePath('tmp/my-v1-app-javascript'),
   projectType: 'app',
 };
 
@@ -77,7 +79,7 @@ const context: Context = {
 const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: true,
-  projectRoot: 'tmp/my-v1-app-javascript',
+  projectRoot: normalizeFilePath('tmp/my-v1-app-javascript'),
   src: 'app/components',
 };
 

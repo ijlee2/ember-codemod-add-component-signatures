@@ -1,3 +1,4 @@
+import { normalizeFilePath } from '@codemod-utils/files';
 import { assert, test } from '@codemod-utils/tests';
 
 import type {
@@ -12,7 +13,7 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'flat',
     convertJavaScript: false,
-    projectRoot: 'tmp/my-v1-app',
+    projectRoot: normalizeFilePath('tmp/my-v1-app'),
     src: 'app/components',
   };
 
@@ -20,15 +21,18 @@ function getPath(componentName: string): string {
 }
 
 test('utils | components | get-class-path > app (flat)', function () {
-  assert.strictEqual(getPath('index'), 'app/components/index.ts');
+  assert.strictEqual(
+    getPath('index'),
+    normalizeFilePath('app/components/index.ts'),
+  );
 
   assert.strictEqual(
     getPath('navigation-menu'),
-    'app/components/navigation-menu.ts',
+    normalizeFilePath('app/components/navigation-menu.ts'),
   );
 
   assert.strictEqual(
     getPath('widgets/widget-3'),
-    'app/components/widgets/widget-3.ts',
+    normalizeFilePath('app/components/widgets/widget-3.ts'),
   );
 });

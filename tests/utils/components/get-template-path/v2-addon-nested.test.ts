@@ -1,3 +1,4 @@
+import { normalizeFilePath } from '@codemod-utils/files';
 import { assert, test } from '@codemod-utils/tests';
 
 import type {
@@ -12,23 +13,26 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'nested',
     convertJavaScript: false,
-    projectRoot: 'tmp/my-v2-addon',
+    projectRoot: normalizeFilePath('tmp/my-v2-addon'),
     src: 'src/components',
   };
 
   return getTemplatePath(componentName, extensions, options);
 }
 
-test('utils | components | get-class-path > v2 addon (nested)', function () {
-  assert.strictEqual(getPath('index'), 'src/components/index/index.hbs');
+test('utils | components | get-template-path > v2 addon (nested)', function () {
+  assert.strictEqual(
+    getPath('index'),
+    normalizeFilePath('src/components/index/index.hbs'),
+  );
 
   assert.strictEqual(
     getPath('navigation-menu'),
-    'src/components/navigation-menu/index.hbs',
+    normalizeFilePath('src/components/navigation-menu/index.hbs'),
   );
 
   assert.strictEqual(
     getPath('widgets/widget-3'),
-    'src/components/widgets/widget-3/index.hbs',
+    normalizeFilePath('src/components/widgets/widget-3/index.hbs'),
   );
 });

@@ -1,3 +1,5 @@
+import { normalizeFilePath } from '@codemod-utils/files';
+
 import type {
   CodemodOptions,
   Context,
@@ -7,7 +9,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
-  projectRoot: 'tmp/has-hbs-file-only',
+  projectRoot: normalizeFilePath('tmp/has-hbs-file-only'),
   projectType: 'app',
 };
 
@@ -39,7 +41,7 @@ const context: Context = {
 const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
-  projectRoot: 'tmp/has-hbs-file-only',
+  projectRoot: normalizeFilePath('tmp/has-hbs-file-only'),
   src: 'app/components',
 };
 
