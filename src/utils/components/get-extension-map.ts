@@ -1,4 +1,4 @@
-import { join } from 'node:path';
+import { join, sep } from 'node:path';
 
 import { parseFilePath } from '@codemod-utils/files';
 
@@ -17,7 +17,7 @@ export function getExtensionMap(filePaths: string[]): UnfilteredExtensionMap {
       name: string;
     };
 
-    const componentName = join(dir, name);
+    const componentName = join(dir, name).replaceAll(sep, '/');
 
     if (extensionMap.has(componentName)) {
       extensionMap.get(componentName)!.add(ext);
