@@ -14,7 +14,7 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'flat',
     convertJavaScript: false,
-    projectRoot: normalize('tmp/my-v1-addon'),
+    projectRoot: 'tmp/my-v1-addon',
     src: 'addon/components',
   };
 

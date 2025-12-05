@@ -14,7 +14,7 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'nested',
     convertJavaScript: false,
-    projectRoot: normalize('tmp/my-v1-app'),
+    projectRoot: 'tmp/my-v1-app',
     src: 'app/components',
   };
 
