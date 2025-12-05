@@ -1,5 +1,3 @@
-import { normalize } from 'node:path';
-
 import type {
   CodemodOptions,
   Context,
@@ -9,7 +7,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
-  projectRoot: normalize('tmp/has-no-args'),
+  projectRoot: 'tmp/has-no-args',
   projectType: 'app',
 };
 
@@ -258,7 +256,7 @@ const context: Context = {
 const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
-  projectRoot: normalize('tmp/has-no-args'),
+  projectRoot: 'tmp/has-no-args',
   src: 'app/components',
 };
 

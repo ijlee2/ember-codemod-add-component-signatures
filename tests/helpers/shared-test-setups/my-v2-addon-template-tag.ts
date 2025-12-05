@@ -1,5 +1,3 @@
-import { normalize } from 'node:path';
-
 import type {
   CodemodOptions,
   Context,
@@ -9,7 +7,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
-  projectRoot: normalize('tmp/my-v2-addon-template-tag'),
+  projectRoot: 'tmp/my-v2-addon-template-tag',
   projectType: 'v2-addon',
 };
 
@@ -170,7 +168,7 @@ const context: Context = {
 const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
-  projectRoot: normalize('tmp/my-v2-addon-template-tag'),
+  projectRoot: 'tmp/my-v2-addon-template-tag',
   src: 'src/components',
 };
 

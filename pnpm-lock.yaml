@@ -24,8 +24,8 @@ importers:
         specifier: ^3.0.4
         version: 3.0.4
       '@codemod-utils/files':
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: ^3.2.0
+        version: 3.2.0
       yargs:
         specifier: ^18.0.0
         version: 18.0.0
@@ -37,8 +37,8 @@ importers:
         specifier: ^0.7.0
         version: 0.7.0(encoding@0.1.13)
       '@codemod-utils/tests':
-        specifier: ^2.1.0
-        version: 2.1.0(@sondr3/minitest@0.1.2)
+        specifier: ^2.2.0
+        version: 2.2.0(@sondr3/minitest@0.1.2)
       '@ijlee2-frontend-configs/eslint-config-node':
         specifier: ^2.3.0
         version: 2.3.0(@typescript-eslint/parser@8.48.1(eslint@9.39.1)(typescript@5.9.3))(@typescript-eslint/utils@8.48.1(eslint@9.39.1)(typescript@5.9.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.48.1(eslint@9.39.1)(typescript@5.9.3))(eslint@9.39.1))(eslint@9.39.1)(typescript@5.9.3)
@@ -231,12 +231,12 @@ packages:
     resolution: {integrity: sha512-z6TdaCE0wCQlv8Gr6jjbE08d+gM+YIgPG/JWpLkhjB9S3qQJyUd2CWfthDsSIaA1VG8KqynCM0j1JQ4BZ8X+hg==}
     engines: {node: 20.* || >= 22}
 
-  '@codemod-utils/files@3.1.0':
-    resolution: {integrity: sha512-rPIn3zXdLsuDhkDGj5txJAAhRm2n3Px9eV4tv0Rq+bnjzvamS2YDHKJqeifufxSp4YLf0AETF7H5FWiVdeThjA==}
+  '@codemod-utils/files@3.2.0':
+    resolution: {integrity: sha512-/ovpqWmSjTT7Ax/ShGKh8giOiIM+BMHyG6LQn5PYw2LXzUSwUwsRpNmJaZ7zqpWYu6zpmD7cbkk5DVvIdv2Jqw==}
     engines: {node: 20.* || >= 22}
 
-  '@codemod-utils/tests@2.1.0':
-    resolution: {integrity: sha512-cr4Pbt7/+XcitwopxW2v4/1hd6YbYbC6/2BWl9gIz1dJt0183toTQUrMva6rMyaykFR06MPFeft+NnOouHvhww==}
+  '@codemod-utils/tests@2.2.0':
+    resolution: {integrity: sha512-w0+ETyChehF5rRpAEn1iQQZCvhTVYsAA/ZFmWyQPFBXLDElNvHpQYgB1AF9INdD2L+3Josi4WbfI5PfL1Cp9jQ==}
     engines: {node: 20.* || >= 22}
     peerDependencies:
       '@sondr3/minitest': ^0.1.2
@@ -2492,11 +2492,11 @@ snapshots:
 
   '@codemod-utils/ember@3.0.4': {}
 
-  '@codemod-utils/files@3.1.0':
+  '@codemod-utils/files@3.2.0':
     dependencies:
       glob: 13.0.0
 
-  '@codemod-utils/tests@2.1.0(@sondr3/minitest@0.1.2)':
+  '@codemod-utils/tests@2.2.0(@sondr3/minitest@0.1.2)':
     dependencies:
       '@sondr3/minitest': 0.1.2
       fixturify: 3.0.0
