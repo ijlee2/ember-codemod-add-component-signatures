@@ -107,7 +107,7 @@ export function analyzeComponents(
         message += ` (${error.message})`;
       }
 
-      console.warn(`${message}\n`);
+      console.warn(message);
     }
   }
 

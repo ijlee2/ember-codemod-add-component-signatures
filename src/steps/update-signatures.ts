@@ -49,7 +49,7 @@ export function updateSignatures(context: Context, options: Options): void {
         message += ` (${error.message})`;
       }
 
-      console.warn(`${message}\n`);
+      console.warn(message);
     }
   }
 
