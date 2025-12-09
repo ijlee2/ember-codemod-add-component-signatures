@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.3
+
+### Patch Changes
+
+- [#80](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/80) Removed unnecessary newlines ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.1.2
 
 ### Patch Changes
