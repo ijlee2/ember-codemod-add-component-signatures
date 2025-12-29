@@ -46,40 +46,38 @@ export default class UiFormTextarea extends Component<UiFormTextareaSignature> {
     onUpdate({ key, value });
   }
 
-  <template>
-  <UiFormField @errorMessage={{this.errorMessage}} @isWide={{@isWide}}>
+  <template><UiFormField @errorMessage={{this.errorMessage}} @isWide={{@isWide}}>
   <:label as |l|>
   <label data-test-label for={{l.inputId}}>
-    {{@label}}
+  {{@label}}
 
-    {{#if @isRequired}}
-      <span aria-hidden="true">
-        *
-      </span>
-    {{/if}}
+  {{#if @isRequired}}
+  <span aria-hidden="true">
+    *
+  </span>
+  {{/if}}
   </label>
   </:label>
 
   <:field as |f|>
   <textarea
-    class={{local
-      styles
-      "textarea"
-      (if (or @isDisabled @isReadOnly) "is-disabled")
-    }}
-    data-test-field={{@label}}
-    disabled={{@isDisabled}}
-    id={{f.inputId}}
-    placeholder={{@placeholder}}
-    readonly={{@isReadOnly}}
-    required={{@isRequired}}
-    rows="4"
-    value={{this.value}}
-    {{on "input" this.updateValue}}
+  class={{local
+  styles
+  "textarea"
+  (if (or @isDisabled @isReadOnly) "is-disabled")
+  }}
+  data-test-field={{@label}}
+  disabled={{@isDisabled}}
+  id={{f.inputId}}
+  placeholder={{@placeholder}}
+  readonly={{@isReadOnly}}
+  required={{@isRequired}}
+  rows="4"
+  value={{this.value}}
+  {{on "input" this.updateValue}}
   ></textarea>
   </:field>
-  </UiFormField>
-  </template>
+  </UiFormField></template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

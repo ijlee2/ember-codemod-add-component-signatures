@@ -10,23 +10,21 @@ interface NavigationMenuSignature {
   };
 }
 
-const NavigationMenu = <template>
-  <nav aria-label={{@name}} data-test-nav={{@name}}>
-    <ul class={{styles.list}}>
-      {{#each @menuItems as |menuItem|}}
-        <li>
-          <LinkTo
-            @route={{menuItem.route}}
-            class={{local styles "link"}}
-            data-test-link={{menuItem.label}}
-          >
-            {{menuItem.label}}
-          </LinkTo>
-        </li>
-      {{/each}}
-    </ul>
-  </nav>
-</template>;
+const NavigationMenu = <template><nav aria-label={{@name}} data-test-nav={{@name}}>
+  <ul class={{styles.list}}>
+    {{#each @menuItems as |menuItem|}}
+      <li>
+        <LinkTo
+          @route={{menuItem.route}}
+          class={{local styles "link"}}
+          data-test-link={{menuItem.label}}
+        >
+          {{menuItem.label}}
+        </LinkTo>
+      </li>
+    {{/each}}
+  </ul>
+</nav></template>;
 
 
 export default NavigationMenu;

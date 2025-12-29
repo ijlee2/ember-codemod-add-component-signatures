@@ -11,17 +11,15 @@ interface UiPageSignature {
   };
 }
 
-<template>
-  <div class={{styles.container}}>
-    <h1 class={{styles.title}}>
-      {{@title}}
-    </h1>
+<template><div class={{styles.container}}>
+  <h1 class={{styles.title}}>
+    {{@title}}
+  </h1>
 
-    <div class={{styles.content}} id="main-content" tabindex="-1">
-      {{yield}}
-    </div>
+  <div class={{styles.content}} id="main-content" tabindex="-1">
+    {{yield}}
   </div>
-</template> satisfies TOC<UiPageSignature>;
+</div></template> satisfies TOC<UiPageSignature>;
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

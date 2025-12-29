@@ -56,43 +56,41 @@ export default class UiFormNumber extends Component<UiFormNumberSignature> {
     onUpdate({ key, value: valueAsNumber });
   }
 
-  <template>
-  <UiFormField @errorMessage={{this.errorMessage}} @isWide={{@isWide}}>
+  <template><UiFormField @errorMessage={{this.errorMessage}} @isWide={{@isWide}}>
   <:label as |l|>
   <label data-test-label for={{l.inputId}}>
-    {{@label}}
+  {{@label}}
 
-    {{#if @isRequired}}
-      <span aria-hidden="true">
-        *
-      </span>
-    {{/if}}
+  {{#if @isRequired}}
+  <span aria-hidden="true">
+    *
+  </span>
+  {{/if}}
   </label>
   </:label>
 
   <:field as |f|>
   <input
-    class={{local
-      styles
-      "input"
-      (if (or @isDisabled @isReadOnly) "is-disabled")
-    }}
-    data-test-field={{@label}}
-    disabled={{@isDisabled}}
-    id={{f.inputId}}
-    max={{@maxValue}}
-    min={{@minValue}}
-    placeholder={{@placeholder}}
-    readonly={{@isReadOnly}}
-    required={{@isRequired}}
-    step={{if @step @step "any"}}
-    type="number"
-    value={{this.value}}
-    {{on "input" this.updateValue}}
+  class={{local
+  styles
+  "input"
+  (if (or @isDisabled @isReadOnly) "is-disabled")
+  }}
+  data-test-field={{@label}}
+  disabled={{@isDisabled}}
+  id={{f.inputId}}
+  max={{@maxValue}}
+  min={{@minValue}}
+  placeholder={{@placeholder}}
+  readonly={{@isReadOnly}}
+  required={{@isRequired}}
+  step={{if @step @step "any"}}
+  type="number"
+  value={{this.value}}
+  {{on "input" this.updateValue}}
   />
   </:field>
-  </UiFormField>
-  </template>
+  </UiFormField></template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {
