@@ -20,72 +20,70 @@ export default class ProductsProductDetailsComponent extends Component<ProductsP
     console.log(`${product.name} has been added to the cart.`);
   }
 
-  <template>
-  <article class={{styles.container}} data-test-product-details>
+  <template><article class={{styles.container}} data-test-product-details>
   <header class={{styles.header}}>
-    <h2 class={{styles.name}} data-test-field="Name">
-      {{@product.name}}
-    </h2>
+  <h2 class={{styles.name}} data-test-field="Name">
+  {{@product.name}}
+  </h2>
   </header>
 
   <div class={{styles.image-container}}>
-    <ProductsProductImage @src={{@product.imageUrl}} />
+  <ProductsProductImage @src={{@product.imageUrl}} />
   </div>
 
   <div class={{styles.body}}>
-    <section class={{styles.field}}>
-      <h3>
-        {{t "components.products.product.details.description"}}
-      </h3>
+  <section class={{styles.field}}>
+  <h3>
+    {{t "components.products.product.details.description"}}
+  </h3>
 
-      <p data-test-field="Description">
-        {{@product.description}}
-      </p>
-    </section>
+  <p data-test-field="Description">
+    {{@product.description}}
+  </p>
+  </section>
 
-    <section class={{styles.field}}>
-      <h3>
-        {{t "components.products.product.details.price"}}
-      </h3>
+  <section class={{styles.field}}>
+  <h3>
+    {{t "components.products.product.details.price"}}
+  </h3>
 
-      <p data-test-field="Price">
-        {{formatPrice @product.price}}
-      </p>
-    </section>
+  <p data-test-field="Price">
+    {{formatPrice @product.price}}
+  </p>
+  </section>
 
-    <section class={{styles.field}}>
-      <h3>
-        {{t "components.products.product.details.rating"}}
-      </h3>
+  <section class={{styles.field}}>
+  <h3>
+    {{t "components.products.product.details.rating"}}
+  </h3>
 
-      <p data-test-field="Rating">
-        {{t
-          "components.products.product.details.rating-value"
-          productRating=@product.rating
-        }}
-      </p>
-    </section>
+  <p data-test-field="Rating">
+    {{t
+      "components.products.product.details.rating-value"
+      productRating=@product.rating
+    }}
+  </p>
+  </section>
 
-    <section class={{styles.field}}>
-      <h3>
-        {{t "components.products.product.details.seller"}}
-      </h3>
+  <section class={{styles.field}}>
+  <h3>
+    {{t "components.products.product.details.seller"}}
+  </h3>
 
-      <p data-test-field="Seller">{{@product.seller}}</p>
-    </section>
+  <p data-test-field="Seller">{{@product.seller}}</p>
+  </section>
   </div>
 
   <div class={{styles.actions}}>
-    <button
-      data-test-button="Add to Cart"
-      type="button"
-      {{on "click" (fn this.addProductToCart @product)}}
-    >
-      {{t "components.products.product.details.add-to-cart"}}
-    </button>
+  <button
+  data-test-button="Add to Cart"
+  type="button"
+  {{on "click" (fn this.addProductToCart @product)}}
+  >
+  {{t "components.products.product.details.add-to-cart"}}
+  </button>
   </div>
-  </article>
-  </template>
+  </article></template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {
