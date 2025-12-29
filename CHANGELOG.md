@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- [#81](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/81) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.1.3
 
 ### Patch Changes
