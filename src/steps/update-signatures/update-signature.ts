@@ -14,6 +14,7 @@ type Data = {
   signature: Signature;
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function getBodyNode(node: unknown, key: 'Args' | 'Blocks' | 'Element') {
   // @ts-expect-error: Assume that types from external packages are correct
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
