@@ -1,5 +1,6 @@
 import { AST } from '@codemod-utils/ast-javascript';
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function builderConvertArgsToSignature(nodes: unknown[] = []) {
   return [
     AST.builders.tsPropertySignature(
@@ -11,6 +12,7 @@ export function builderConvertArgsToSignature(nodes: unknown[] = []) {
   ];
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function builderCreateSignature(identifier: string, members: unknown[]) {
   return AST.builders.tsInterfaceDeclaration(
     AST.builders.identifier(identifier),
@@ -19,6 +21,7 @@ export function builderCreateSignature(identifier: string, members: unknown[]) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function builderPassSignature(identifier: string) {
   return AST.builders.tsTypeParameterInstantiation([
     AST.builders.tsTypeReference(AST.builders.identifier(identifier)),

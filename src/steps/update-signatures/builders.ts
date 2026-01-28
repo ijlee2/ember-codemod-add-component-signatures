@@ -2,6 +2,7 @@ import { AST } from '@codemod-utils/ast-javascript';
 
 import type { Signature } from '../../types/index.js';
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function builderConvertTsTypeToKeyword(tsType: string) {
   switch (tsType) {
     case 'boolean': {
@@ -35,6 +36,7 @@ function needsQuotations(key: string): boolean {
   return key.includes('-');
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function builderCreateArgsNode(signature: Signature) {
   const members: unknown[] = [];
 
@@ -57,6 +59,7 @@ export function builderCreateArgsNode(signature: Signature) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function builderCreateBlocksNode(signature: Signature) {
   if (signature.Blocks === undefined) {
     return;
@@ -87,6 +90,7 @@ export function builderCreateBlocksNode(signature: Signature) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function builderCreateElementNode(signature: Signature) {
   if (signature.Element === undefined) {
     return;
