@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- [#84](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/84) Dropped support for Node 20 ([@ijlee2](https://github.com/ijlee2))
+
 ## 4.2.2
 
 ### Patch Changes
