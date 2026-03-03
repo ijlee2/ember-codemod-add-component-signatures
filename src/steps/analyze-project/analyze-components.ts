@@ -10,7 +10,7 @@ import type {
   Options,
   SignatureMap,
 } from '../../types/index.js';
-import { getClassPath, getTemplatePath } from '../../utils/components.js';
+import { getClassPath, getTemplatePath } from '../../utils/components/index.js';
 import {
   findArguments,
   findBlocks,

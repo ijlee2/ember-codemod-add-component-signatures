@@ -9,7 +9,10 @@ import type {
   Options,
   UnfilteredExtensionMap,
 } from '../../types/index.js';
-import { getBaseComponent, getClassPath } from '../../utils/components.js';
+import {
+  getBaseComponent,
+  getClassPath,
+} from '../../utils/components/index.js';
 
 function isSupported(file: string): boolean {
   const { importPath } = getBaseComponent(file);

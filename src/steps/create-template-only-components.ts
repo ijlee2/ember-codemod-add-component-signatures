@@ -11,7 +11,7 @@ import {
 
 import type { Context, Options } from '../types/index.js';
 import { blueprintsRoot } from '../utils/blueprints.js';
-import { getClassPath } from '../utils/components.js';
+import { getClassPath } from '../utils/components/index.js';
 
 const blueprintFile = readFileSync(
   join(blueprintsRoot, 'ember-cli/template-only-component.ts'),

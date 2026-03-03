@@ -1,4 +1,4 @@
-import { getBaseComponent } from '../../utils/components.js';
+import { getBaseComponent } from '../../utils/components/index.js';
 import {
   passComponentNameToBaseComponent,
   updateReferences,

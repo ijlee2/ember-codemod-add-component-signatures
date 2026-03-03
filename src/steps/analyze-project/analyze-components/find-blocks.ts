@@ -4,7 +4,7 @@ import type { Signature } from '../../../types/index.js';
 import {
   getBlockParameterType,
   normalizeBlockName,
-} from '../../../utils/components.js';
+} from '../../../utils/components/index.js';
 
 export function findBlocks(templateFile: string): Signature['Blocks'] {
   const traverse = AST.traverse();

@@ -1,7 +1,7 @@
 import { findFiles, renamePathByDirectory } from '@codemod-utils/files';
 
 import type { Options, UnfilteredExtensionMap } from '../../types/index.js';
-import { getExtensionMap } from '../../utils/components.js';
+import { getExtensionMap } from '../../utils/components/index.js';
 
 function normalizeComponentNames(
   extensionMap: UnfilteredExtensionMap,
