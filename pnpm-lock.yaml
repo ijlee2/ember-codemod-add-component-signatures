@@ -29,6 +29,9 @@ importers:
       '@codemod-utils/package-json':
         specifier: ^4.0.0
         version: 4.0.0
+      '@codemod-utils/threads':
+        specifier: ^0.2.0
+        version: 0.2.0
       yargs:
         specifier: ^18.0.0
         version: 18.0.0
@@ -247,6 +250,10 @@ packages:
     engines: {node: 22.* || >= 24}
     peerDependencies:
       '@sondr3/minitest': ^0.1.2
+
+  '@codemod-utils/threads@0.2.0':
+    resolution: {integrity: sha512-nuKclqIUiubNLCStRSflWPAklcA5mLD2+xZTZHeNk/wQ5NCOMeUCnxa3G0hki0tKt53tvbUhHQKW2TyhQGjLbA==}
+    engines: {node: 22.* || >= 24}
 
   '@emnapi/core@1.8.1':
     resolution: {integrity: sha512-AvT9QFpxK0Zd8J0jopedNm+w/2fIzvtPKPjqyw9jwvBaReTTqPBk9Hixaz7KbjimP+QNz605/XnjFcDAL2pqBg==}
@@ -2529,6 +2536,8 @@ snapshots:
       '@sondr3/minitest': 0.1.2
       fixturify: 3.0.0
       glob: 13.0.6
+
+  '@codemod-utils/threads@0.2.0': {}
 
   '@emnapi/core@1.8.1':
     dependencies:
