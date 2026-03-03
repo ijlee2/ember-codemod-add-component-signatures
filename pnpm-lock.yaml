@@ -26,6 +26,9 @@ importers:
       '@codemod-utils/files':
         specifier: ^4.0.0
         version: 4.0.0
+      '@codemod-utils/package-json':
+        specifier: ^4.0.0
+        version: 4.0.0
       yargs:
         specifier: ^18.0.0
         version: 18.0.0
@@ -233,6 +236,10 @@ packages:
 
   '@codemod-utils/files@4.0.0':
     resolution: {integrity: sha512-0sOt/kUY8fvEE+R6Mons6SSRrj926SUBt9Np1C3b3FU9+QmjO8obC+AEZ9vnLVqdchduKc/ytTDOQFGGstDfkQ==}
+    engines: {node: 22.* || >= 24}
+
+  '@codemod-utils/package-json@4.0.0':
+    resolution: {integrity: sha512-VWYM34clD+jBEGO9Z0gYCEQJELVdfteWJzPHhb+tOiqAa7JvrFewDYUlfA47mEbTYmQ8wBys94+qVWgFYT4qVg==}
     engines: {node: 22.* || >= 24}
 
   '@codemod-utils/tests@3.0.0':
@@ -2022,6 +2029,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
+  tagged-tag@1.0.0:
+    resolution: {integrity: sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==}
+    engines: {node: '>=20'}
+
   tapable@2.3.0:
     resolution: {integrity: sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==}
     engines: {node: '>=6'}
@@ -2081,6 +2092,10 @@ packages:
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
+
+  type-fest@5.4.4:
+    resolution: {integrity: sha512-JnTrzGu+zPV3aXIUhnyWJj4z/wigMsdYajGLIYakqyOW1nPllzXEJee0QQbHj+CTIQtXGlAjuK0UY+2xTyjVAw==}
+    engines: {node: '>=20'}
 
   typed-array-buffer@1.0.3:
     resolution: {integrity: sha512-nAYYwfY3qnzX30IkA6AQZjVbtK6duGontcQm1WSG1MD94YLqK0515GNApXkoxKOWMusVssAHWLh9SeaoefYFGw==}
@@ -2504,6 +2519,10 @@ snapshots:
   '@codemod-utils/files@4.0.0':
     dependencies:
       glob: 13.0.6
+
+  '@codemod-utils/package-json@4.0.0':
+    dependencies:
+      type-fest: 5.4.4
 
   '@codemod-utils/tests@3.0.0(@sondr3/minitest@0.1.2)':
     dependencies:
@@ -4570,6 +4589,8 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0:
     optional: true
 
+  tagged-tag@1.0.0: {}
+
   tapable@2.3.0: {}
 
   term-size@2.2.1: {}
@@ -4620,6 +4641,10 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
+
+  type-fest@5.4.4:
+    dependencies:
+      tagged-tag: 1.0.0
 
   typed-array-buffer@1.0.3:
     dependencies:

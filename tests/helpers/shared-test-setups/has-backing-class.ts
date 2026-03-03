@@ -8,7 +8,6 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
   projectRoot: 'tmp/has-backing-class',
-  projectType: 'app',
 };
 
 const context: Context = {

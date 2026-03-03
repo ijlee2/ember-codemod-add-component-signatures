@@ -2,7 +2,6 @@ type CodemodOptions = {
   componentStructure: 'flat' | 'nested';
   convertJavaScript: boolean;
   projectRoot: string;
-  projectType: 'app' | 'v1-addon' | 'v2-addon';
 };
 
 type ComponentName = string;

@@ -27,12 +27,6 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Location of your Ember project',
     type: 'string',
   })
-  .option('type', {
-    choices: ['app', 'v1-addon', 'v2-addon'] as const,
-    demandOption: true,
-    describe: 'Type of your Ember project',
-    type: 'string',
-  })
   .parseSync();
 
 const codemodOptions: CodemodOptions = {
@@ -41,7 +35,6 @@ const codemodOptions: CodemodOptions = {
   ] as CodemodOptions['componentStructure'],
   convertJavaScript: argv['convert-javascript'],
   projectRoot: argv['root'] ?? process.cwd(),
-  projectType: argv['type'],
 };
 
 runCodemod(codemodOptions);

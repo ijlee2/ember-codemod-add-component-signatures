@@ -64,14 +64,6 @@ Nice to do:
 
 ### Arguments
 
-You must pass `--type` to indicate what type of project you have.
-
-```sh
-pnpx ember-codemod-add-component-signatures --type app
-pnpx ember-codemod-add-component-signatures --type v1-addon
-pnpx ember-codemod-add-component-signatures --type v2-addon
-```
-
 <details>
 
 <summary>Optional: Specify the component structure</summary>
