@@ -1,59 +1,22 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-
-import { updateJavaScript } from '@codemod-utils/ast-template-tag';
-import { pascalize } from '@codemod-utils/ember';
-import {
-  createFiles,
-  type FileContent,
-  type FilePath,
-} from '@codemod-utils/files';
+import { parallelize } from '@codemod-utils/threads';
 
 import type { Context, Options } from '../types/index.js';
-import { getClassPath } from '../utils/components/index.js';
-import { createSignature } from '../utils/create-signatures/index.js';
+import { task } from './create-signatures/task.js';
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export async function createSignatures(
   context: Context,
   options: Options,
 ): Promise<void> {
   const { extensionMap } = context;
-  const { projectRoot } = options;
 
-  const fileMap = new Map<FilePath, FileContent>();
+  const datasets: Parameters<typeof task>[] = [];
 
   for (const [componentName, extensions] of extensionMap) {
-    const filePath = getClassPath(componentName, extensions, options);
-
-    const data = {
-      entity: {
-        pascalizedName: pascalize(componentName),
-      },
-    };
-
-    try {
-      let file = readFileSync(join(projectRoot, filePath), 'utf8');
-
-      if (extensions.has('.gts')) {
-        file = updateJavaScript(file, (code) => {
-          return createSignature(code, data);
-        });
-      } else {
-        file = createSignature(file, data);
-      }
-
-      fileMap.set(filePath, file);
-    } catch (error) {
-      let message = `WARNING: createSignatures could not update \`${filePath}\`. Please update the file manually.`;
-
-      if (error instanceof Error) {
-        message += ` (${error.message})`;
-      }
-
-      console.warn(message);
-    }
+    datasets.push([componentName, extensions, options]);
   }
 
-  createFiles(fileMap, options);
+  await parallelize(task, datasets, {
+    importMetaUrl: import.meta.url,
+    workerFilePath: './create-signatures/worker.js',
+  });
 }
