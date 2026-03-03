@@ -11,7 +11,7 @@ import {
 
 import type { Context, Options } from '../types/index.js';
 import { getClassPath } from '../utils/components/index.js';
-import { updateSignature } from './update-signatures/index.js';
+import { updateSignature } from '../utils/update-signatures/index.js';
 
 export function updateSignatures(context: Context, options: Options): void {
   const { extensionMap, signatureMap } = context;

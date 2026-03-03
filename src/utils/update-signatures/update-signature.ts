@@ -5,7 +5,7 @@ import {
   builderCreateArgsNode,
   builderCreateBlocksNode,
   builderCreateElementNode,
-} from './builders.js';
+} from './update-signature/builders.js';
 
 type Data = {
   entity: {
