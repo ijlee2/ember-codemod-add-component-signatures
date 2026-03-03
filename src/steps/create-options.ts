@@ -1,17 +1,19 @@
 import type { CodemodOptions, Options } from '../types/index.js';
 
-function getSrc(projectType: CodemodOptions['projectType']): string {
+function getSrc(
+  projectType: CodemodOptions['projectType'],
+): 'app' | 'addon' | 'src' {
   switch (projectType) {
     case 'app': {
-      return 'app/components';
+      return 'app';
     }
 
     case 'v1-addon': {
-      return 'addon/components';
+      return 'addon';
     }
 
     case 'v2-addon': {
-      return 'src/components';
+      return 'src';
     }
   }
 }

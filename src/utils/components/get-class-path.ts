@@ -15,8 +15,8 @@ export function getClassPath(
 
   const filePath =
     componentStructure === 'nested'
-      ? join(src, componentName, 'index')
-      : join(src, componentName);
+      ? join(src, 'components', componentName, 'index')
+      : join(src, 'components', componentName);
 
   if (extensions.has('.gts')) {
     return `${filePath}.gts`;

@@ -9,7 +9,7 @@ export function convertToTypeScript(options: Options): void {
     return;
   }
 
-  const filePaths = findFiles(`${src}/**/*.{gjs,js}`, {
+  const filePaths = findFiles(`${src}/components/**/*.{gjs,js}`, {
     projectRoot,
   });
 

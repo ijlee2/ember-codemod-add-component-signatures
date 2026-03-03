@@ -15,8 +15,8 @@ export function getTemplatePath(
 
   const filePath =
     componentStructure === 'nested'
-      ? join(src, componentName, 'index')
-      : join(src, componentName);
+      ? join(src, 'components', componentName, 'index')
+      : join(src, 'components', componentName);
 
   if (!extensions.has('.hbs')) {
     throw new RangeError('extensions must include `.hbs`');
