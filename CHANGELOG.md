@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.0
+
+### Minor Changes
+
+- [#88](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/88) Allowed passing --create-registries ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.1.0
 
 ### Minor Changes
