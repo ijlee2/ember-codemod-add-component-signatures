@@ -7,15 +7,15 @@ import {
 } from '../fixtures/my-v2-addon-javascript/index.js';
 import { codemodOptions } from '../helpers/shared-test-setups/my-v2-addon-javascript.js';
 
-test('index > my-v2-addon-javascript', function () {
+test('index > my-v2-addon-javascript', async function () {
   loadFixture(inputProject, codemodOptions);
 
-  runCodemod(codemodOptions);
+  await runCodemod(codemodOptions);
 
   assertFixture(outputProject, codemodOptions);
 
   // TODO: Guarantee idempotence
-  // runCodemod(codemodOptions);
+  // await runCodemod(codemodOptions);
 
   // assertFixture(outputProject, codemodOptions);
 });

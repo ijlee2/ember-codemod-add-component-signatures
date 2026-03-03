@@ -7,15 +7,15 @@ import {
 } from '../fixtures/my-v1-app-nested/index.js';
 import { codemodOptions } from '../helpers/shared-test-setups/my-v1-app-nested.js';
 
-test('index > my-v1-app-nested', function () {
+test('index > my-v1-app-nested', async function () {
   loadFixture(inputProject, codemodOptions);
 
-  runCodemod(codemodOptions);
+  await runCodemod(codemodOptions);
 
   assertFixture(outputProject, codemodOptions);
 
   // Check idempotence
-  runCodemod(codemodOptions);
+  await runCodemod(codemodOptions);
 
   assertFixture(outputProject, codemodOptions);
 });

@@ -12,7 +12,7 @@ import {
   options,
 } from '../../helpers/shared-test-setups/has-declaration-file.js';
 
-test('steps | update-signatures > has-declaration-file', function () {
+test('steps | update-signatures > has-declaration-file', async function () {
   const inputProject = convertFixtureToJson(
     'steps/update-signatures/has-declaration-file/input',
   );
@@ -23,7 +23,7 @@ test('steps | update-signatures > has-declaration-file', function () {
 
   loadFixture(inputProject, codemodOptions);
 
-  updateSignatures(context, options);
+  await updateSignatures(context, options);
 
   assertFixture(outputProject, codemodOptions);
 });

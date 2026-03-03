@@ -7,15 +7,15 @@ import {
 } from '../fixtures/my-v1-app-no-args/index.js';
 import { codemodOptions } from '../helpers/shared-test-setups/my-v1-app-no-args.js';
 
-test('index > my-v1-app-no-args', function () {
+test('index > my-v1-app-no-args', async function () {
   loadFixture(inputProject, codemodOptions);
 
-  runCodemod(codemodOptions);
+  await runCodemod(codemodOptions);
 
   assertFixture(outputProject, codemodOptions);
 
   // Check idempotence
-  runCodemod(codemodOptions);
+  await runCodemod(codemodOptions);
 
   assertFixture(outputProject, codemodOptions);
 });

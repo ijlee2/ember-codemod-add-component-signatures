@@ -9,21 +9,23 @@ import {
 } from './steps/index.js';
 import type { CodemodOptions } from './types/index.js';
 
-export function runCodemod(codemodOptions: CodemodOptions): void {
+export async function runCodemod(
+  codemodOptions: CodemodOptions,
+): Promise<void> {
   const options = createOptions(codemodOptions);
 
   if (options.convertJavaScript) {
     convertToTypeScript(options);
   }
 
-  const context = analyzeProject(options);
+  const context = await analyzeProject(options);
 
   createTemplateOnlyComponents(context, options);
-  createSignatures(context, options);
+  await createSignatures(context, options);
 
   if (options.createRegistries) {
-    createRegistries(context, options);
+    await createRegistries(context, options);
   }
 
-  updateSignatures(context, options);
+  await updateSignatures(context, options);
 }

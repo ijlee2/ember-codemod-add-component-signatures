@@ -5,10 +5,10 @@ import {
   findComponents,
 } from './analyze-project/index.js';
 
-export function analyzeProject(options: Options): Context {
+export async function analyzeProject(options: Options): Promise<Context> {
   const unfilteredExtensionMap = findComponents(options);
-  const extensionMap = filterComponents(unfilteredExtensionMap, options);
-  const signatureMap = analyzeComponents(extensionMap, options);
+  const extensionMap = await filterComponents(unfilteredExtensionMap, options);
+  const signatureMap = await analyzeComponents(extensionMap, options);
 
   return {
     extensionMap,

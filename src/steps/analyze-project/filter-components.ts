@@ -1,61 +1,28 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-
-import { toEcma } from '@codemod-utils/ast-template-tag';
+import { parallelize } from '@codemod-utils/threads';
 
 import type {
-  ComponentExtension,
   ExtensionMap,
   Options,
   UnfilteredExtensionMap,
 } from '../../types/index.js';
-import {
-  getBaseComponent,
-  getClassPath,
-} from '../../utils/components/index.js';
+import { task } from './filter-components/task.js';
 
-function isSupported(file: string): boolean {
-  const { importPath } = getBaseComponent(file);
-
-  const isComponent = importPath !== undefined;
-  const isClassicComponent = importPath === '@ember/component';
-
-  return isComponent && !isClassicComponent;
-}
-
-export function filterComponents(
+export async function filterComponents(
   extensionMap: UnfilteredExtensionMap,
   options: Options,
-): ExtensionMap {
-  const { projectRoot } = options;
-
-  const newExtensionMap: ExtensionMap = new Map();
+): Promise<ExtensionMap> {
+  const datasets: Parameters<typeof task>[] = [];
 
   for (const [componentName, extensions] of extensionMap) {
-    const hasClassJavaScript = extensions.has('.gjs') || extensions.has('.js');
-
-    if (hasClassJavaScript) {
-      continue;
-    }
-
-    const filteredExtensions = extensions as Set<ComponentExtension>;
-    const hasClassTypeScript =
-      filteredExtensions.has('.gts') || filteredExtensions.has('.ts');
-
-    // hbs file only
-    if (!hasClassTypeScript) {
-      newExtensionMap.set(componentName, filteredExtensions);
-
-      continue;
-    }
-
-    const filePath = getClassPath(componentName, filteredExtensions, options);
-    const file = readFileSync(join(projectRoot, filePath), 'utf8');
-
-    if (isSupported(toEcma(file))) {
-      newExtensionMap.set(componentName, filteredExtensions);
-    }
+    datasets.push([componentName, extensions, options]);
   }
 
-  return newExtensionMap;
+  const entries = await parallelize(task, datasets, {
+    importMetaUrl: import.meta.url,
+    workerFilePath: './filter-components/worker.js',
+  });
+
+  return new Map(
+    entries.filter((entry) => entry !== undefined),
+  ) as ExtensionMap;
 }
