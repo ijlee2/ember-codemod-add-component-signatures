@@ -4,7 +4,12 @@ import type { CodemodOptions, Options } from '../types/index.js';
 import { SOURCE_DIRECTORY } from '../utils/ember.js';
 
 export function createOptions(codemodOptions: CodemodOptions): Options {
-  const { componentStructure, convertJavaScript, projectRoot } = codemodOptions;
+  const {
+    componentStructure,
+    convertJavaScript,
+    createRegistries,
+    projectRoot,
+  } = codemodOptions;
 
   const packageJson = readPackageJson({ projectRoot });
   const packageType = getPackageType(packageJson);
@@ -18,6 +23,7 @@ export function createOptions(codemodOptions: CodemodOptions): Options {
   return {
     componentStructure,
     convertJavaScript,
+    createRegistries,
     projectRoot,
     src,
   };
