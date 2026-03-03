@@ -5,11 +5,10 @@ import {
   findComponents,
 } from './analyze-project/index.js';
 
-// eslint-disable-next-line @typescript-eslint/require-await
 export async function analyzeProject(options: Options): Promise<Context> {
   const unfilteredExtensionMap = findComponents(options);
-  const extensionMap = filterComponents(unfilteredExtensionMap, options);
-  const signatureMap = analyzeComponents(extensionMap, options);
+  const extensionMap = await filterComponents(unfilteredExtensionMap, options);
+  const signatureMap = await analyzeComponents(extensionMap, options);
 
   return {
     extensionMap,
