@@ -9,7 +9,7 @@ interface TracksListSignature {
   };
 }
 
-export default class TracksList extends Component<TracksListSignature> {
+export default class TracksListComponent extends Component<TracksListSignature> {
   get numColumns(): number {
     const { numColumns } = this.args;
 
@@ -24,12 +24,5 @@ export default class TracksList extends Component<TracksListSignature> {
     }
 
     return Math.ceil(tracks.length / this.numColumns);
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Tracks::List': typeof TracksList;
-    'tracks/list': typeof TracksList;
   }
 }

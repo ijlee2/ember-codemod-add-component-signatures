@@ -14,7 +14,7 @@ interface ProductsProductDetailsSignature {
   };
 }
 
-export default class ProductsProductDetails extends Component<ProductsProductDetailsSignature> {
+export default class ProductsProductDetailsComponent extends Component<ProductsProductDetailsSignature> {
   @action addProductToCart(product) {
     console.log(`${product.name} has been added to the cart.`);
   }
@@ -33,40 +33,40 @@ export default class ProductsProductDetails extends Component<ProductsProductDet
   <div class={{styles.body}}>
   <section class={{styles.field}}>
   <h3>
-  {{t "components.products.product.details.description"}}
+    {{t "components.products.product.details.description"}}
   </h3>
 
   <p data-test-field="Description">
-  {{@product.description}}
+    {{@product.description}}
   </p>
   </section>
 
   <section class={{styles.field}}>
   <h3>
-  {{t "components.products.product.details.price"}}
+    {{t "components.products.product.details.price"}}
   </h3>
 
   <p data-test-field="Price">
-  {{formatPrice @product.price}}
+    {{formatPrice @product.price}}
   </p>
   </section>
 
   <section class={{styles.field}}>
   <h3>
-  {{t "components.products.product.details.rating"}}
+    {{t "components.products.product.details.rating"}}
   </h3>
 
   <p data-test-field="Rating">
-  {{t
-    "components.products.product.details.rating-value"
-    productRating=@product.rating
-  }}
+    {{t
+      "components.products.product.details.rating-value"
+      productRating=@product.rating
+    }}
   </p>
   </section>
 
   <section class={{styles.field}}>
   <h3>
-  {{t "components.products.product.details.seller"}}
+    {{t "components.products.product.details.seller"}}
   </h3>
 
   <p data-test-field="Seller">{{@product.seller}}</p>
@@ -83,11 +83,4 @@ export default class ProductsProductDetails extends Component<ProductsProductDet
   </button>
   </div>
   </article></template>
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Products::Product::Details': typeof ProductsProductDetails;
-    'products/product/details': typeof ProductsProductDetails;
-  }
 }

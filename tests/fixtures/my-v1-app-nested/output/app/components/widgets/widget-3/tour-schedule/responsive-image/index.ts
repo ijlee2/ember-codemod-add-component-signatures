@@ -12,19 +12,12 @@ interface WidgetsWidget3TourScheduleResponsiveImageSignature {
   };
 }
 
-export default class WidgetsWidget3TourScheduleResponsiveImage extends Component<WidgetsWidget3TourScheduleResponsiveImageSignature> {
+export default class WidgetsWidget3TourScheduleResponsiveImageComponent extends Component<WidgetsWidget3TourScheduleResponsiveImageSignature> {
   @tracked imageSource?: string;
 
   @action setImageSource({ dimensions }: { dimensions: Dimensions }): void {
     const { images } = this.args as WidgetsWidget3TourScheduleResponsiveImageSignature['Args'];
 
     this.imageSource = findBestFittingImage(images, dimensions);
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-3::TourSchedule::ResponsiveImage': typeof WidgetsWidget3TourScheduleResponsiveImage;
-    'widgets/widget-3/tour-schedule/responsive-image': typeof WidgetsWidget3TourScheduleResponsiveImage;
   }
 }

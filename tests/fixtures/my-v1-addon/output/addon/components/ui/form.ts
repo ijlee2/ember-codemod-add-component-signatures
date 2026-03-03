@@ -14,7 +14,7 @@ interface UiFormSignature {
   };
 }
 
-export default class UiForm extends Component<UiFormSignature> {
+export default class UiFormComponent extends Component<UiFormSignature> {
   formId = guidFor(this);
 
   @tracked changeset = this.args.data ?? ({} as Record<string, any>);
@@ -30,12 +30,5 @@ export default class UiForm extends Component<UiFormSignature> {
       ...this.changeset,
       [key]: value,
     };
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form': typeof UiForm;
-    'ui/form': typeof UiForm;
   }
 }

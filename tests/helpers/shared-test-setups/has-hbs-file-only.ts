@@ -7,6 +7,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
+  createRegistries: false,
   projectRoot: 'tmp/has-hbs-file-only',
 };
 
@@ -38,6 +39,7 @@ const context: Context = {
 const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
+  createRegistries: false,
   projectRoot: 'tmp/has-hbs-file-only',
   src: 'app' as const,
 };

@@ -7,6 +7,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
+  createRegistries: false,
   projectRoot: 'tmp/has-backing-class',
 };
 
@@ -246,6 +247,7 @@ const context: Context = {
 const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
+  createRegistries: false,
   projectRoot: 'tmp/has-backing-class',
   src: 'app' as const,
 };

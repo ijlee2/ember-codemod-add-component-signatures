@@ -12,7 +12,7 @@ interface WidgetsWidget2Signature {
   Args: {};
 }
 
-export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
+export default class WidgetsWidget2Component extends Component<WidgetsWidget2Signature> {
   @tracked data = [] as Data[];
   @tracked summaries = [] as Summary[];
 
@@ -25,12 +25,5 @@ export default class WidgetsWidget2 extends Component<WidgetsWidget2Signature> {
   loadData(): void {
     this.data = createDataForVisualization(musicRevenue);
     this.summaries = createSummariesForCaptions(this.data);
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-2': typeof WidgetsWidget2;
-    'widgets/widget-2': typeof WidgetsWidget2;
   }
 }

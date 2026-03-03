@@ -12,17 +12,18 @@ import type { CodemodOptions } from './types/index.js';
 export function runCodemod(codemodOptions: CodemodOptions): void {
   const options = createOptions(codemodOptions);
 
-  // Prepare for migration
-  convertToTypeScript(options);
+  if (options.convertJavaScript) {
+    convertToTypeScript(options);
+  }
+
   const context = analyzeProject(options);
 
-  // Update components without backing class
   createTemplateOnlyComponents(context, options);
-
-  // Update components with backing class
   createSignatures(context, options);
-  createRegistries(context, options);
 
-  // Fill out signatures
+  if (options.createRegistries) {
+    createRegistries(context, options);
+  }
+
   updateSignatures(context, options);
 }

@@ -8,13 +8,6 @@ interface ProductsProductCardSignature {
   Element: HTMLElement;
 }
 
-const ProductsProductCard = templateOnlyComponent<ProductsProductCardSignature>();
+const Component = templateOnlyComponent<ProductsProductCardSignature>();
 
-export default ProductsProductCard;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Products::Product::Card': typeof ProductsProductCard;
-    'products/product/card': typeof ProductsProductCard;
-  }
-}
+export default Component;

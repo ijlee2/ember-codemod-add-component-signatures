@@ -10,7 +10,7 @@ interface NavigationMenuSignature {
   };
 }
 
-const NavigationMenu = <template><nav aria-label={{@name}} data-test-nav={{@name}}>
+<template><nav aria-label={{@name}} data-test-nav={{@name}}>
   <ul class={{styles.list}}>
     {{#each @menuItems as |menuItem|}}
       <li>
@@ -24,14 +24,4 @@ const NavigationMenu = <template><nav aria-label={{@name}} data-test-nav={{@name
       </li>
     {{/each}}
   </ul>
-</nav></template>;
-
-
-export default NavigationMenu;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'NavigationMenu': typeof NavigationMenu;
-    'navigation-menu': typeof NavigationMenu;
-  }
-}
+</nav></template>

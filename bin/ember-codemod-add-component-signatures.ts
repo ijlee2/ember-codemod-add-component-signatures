@@ -23,6 +23,11 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Convert *.{js,gjs} files?',
     type: 'boolean',
   })
+  .option('create-registries', {
+    default: false,
+    describe: 'Create registries for Glint v1?',
+    type: 'boolean',
+  })
   .option('root', {
     describe: 'Location of your Ember project',
     type: 'string',
@@ -34,6 +39,7 @@ const codemodOptions: CodemodOptions = {
     'component-structure'
   ] as CodemodOptions['componentStructure'],
   convertJavaScript: argv['convert-javascript'],
+  createRegistries: argv['create-registries'],
   projectRoot: argv['root'] ?? process.cwd(),
 };
 

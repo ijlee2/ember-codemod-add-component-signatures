@@ -9,7 +9,7 @@ interface UiPageSignature {
   };
 }
 
-const UiPage = <template><div class={{styles.container}}>
+<template><div class={{styles.container}}>
   <h1 class={{styles.title}}>
     {{@title}}
   </h1>
@@ -17,14 +17,4 @@ const UiPage = <template><div class={{styles.container}}>
   <div class={{styles.content}} id="main-content" tabindex="-1">
     {{yield}}
   </div>
-</div></template>;
-
-
-export default UiPage;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Page': typeof UiPage;
-    'ui/page': typeof UiPage;
-  }
-}
+</div></template>
