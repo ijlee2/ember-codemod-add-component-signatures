@@ -12,7 +12,7 @@ import {
   options,
 } from '../../helpers/shared-test-setups/has-hbs-file-only.js';
 
-test('steps | create-signatures > has-hbs-file-only', function () {
+test('steps | create-signatures > has-hbs-file-only', async function () {
   const inputProject = convertFixtureToJson(
     'steps/create-signatures/has-hbs-file-only/input',
   );
@@ -23,7 +23,7 @@ test('steps | create-signatures > has-hbs-file-only', function () {
 
   loadFixture(inputProject, codemodOptions);
 
-  createSignatures(context, options);
+  await createSignatures(context, options);
 
   assertFixture(outputProject, codemodOptions);
 });

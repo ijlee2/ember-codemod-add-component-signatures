@@ -12,7 +12,7 @@ import {
   options,
 } from '../../helpers/shared-test-setups/has-backing-class.js';
 
-test('steps | create-registries > has-backing-class', function () {
+test('steps | create-registries > has-backing-class', async function () {
   const inputProject = convertFixtureToJson(
     'steps/create-registries/has-backing-class/input',
   );
@@ -23,7 +23,7 @@ test('steps | create-registries > has-backing-class', function () {
 
   loadFixture(inputProject, codemodOptions);
 
-  createRegistries(context, options);
+  await createRegistries(context, options);
 
   assertFixture(outputProject, codemodOptions);
 });

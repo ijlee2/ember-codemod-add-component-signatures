@@ -8,8 +8,8 @@ import {
   options,
 } from '../../helpers/shared-test-setups/my-v2-addon.js';
 
-test('steps | analyze-project > my-v2-addon', function () {
+test('steps | analyze-project > my-v2-addon', async function () {
   loadFixture(inputProject, codemodOptions);
 
-  assert.deepStrictEqual(analyzeProject(options), context);
+  assert.deepStrictEqual(await analyzeProject(options), context);
 });

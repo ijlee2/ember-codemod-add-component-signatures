@@ -12,7 +12,7 @@ import {
   options,
 } from '../../helpers/shared-test-setups/has-no-args.js';
 
-test('steps | create-registries > has-no-args', function () {
+test('steps | create-registries > has-no-args', async function () {
   const inputProject = convertFixtureToJson(
     'steps/create-registries/has-no-args/input',
   );
@@ -23,7 +23,7 @@ test('steps | create-registries > has-no-args', function () {
 
   loadFixture(inputProject, codemodOptions);
 
-  createRegistries(context, options);
+  await createRegistries(context, options);
 
   assertFixture(outputProject, codemodOptions);
 });

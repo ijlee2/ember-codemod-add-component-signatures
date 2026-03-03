@@ -17,7 +17,11 @@ import {
   renameComponent,
 } from '../utils/create-registries/index.js';
 
-export function createRegistries(context: Context, options: Options): void {
+// eslint-disable-next-line @typescript-eslint/require-await
+export async function createRegistries(
+  context: Context,
+  options: Options,
+): Promise<void> {
   const { extensionMap } = context;
   const { projectRoot } = options;
 

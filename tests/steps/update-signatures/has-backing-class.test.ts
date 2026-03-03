@@ -12,7 +12,7 @@ import {
   options,
 } from '../../helpers/shared-test-setups/has-backing-class.js';
 
-test('steps | update-signatures > has-backing-class', function () {
+test('steps | update-signatures > has-backing-class', async function () {
   const inputProject = convertFixtureToJson(
     'steps/update-signatures/has-backing-class/input',
   );
@@ -23,7 +23,7 @@ test('steps | update-signatures > has-backing-class', function () {
 
   loadFixture(inputProject, codemodOptions);
 
-  updateSignatures(context, options);
+  await updateSignatures(context, options);
 
   assertFixture(outputProject, codemodOptions);
 });

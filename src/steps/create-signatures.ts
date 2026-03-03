@@ -13,7 +13,11 @@ import type { Context, Options } from '../types/index.js';
 import { getClassPath } from '../utils/components/index.js';
 import { createSignature } from '../utils/create-signatures/index.js';
 
-export function createSignatures(context: Context, options: Options): void {
+// eslint-disable-next-line @typescript-eslint/require-await
+export async function createSignatures(
+  context: Context,
+  options: Options,
+): Promise<void> {
   const { extensionMap } = context;
   const { projectRoot } = options;
 
