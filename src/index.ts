@@ -21,7 +21,10 @@ export function runCodemod(codemodOptions: CodemodOptions): void {
 
   // Update components with backing class
   createSignatures(context, options);
-  createRegistries(context, options);
+
+  if (options.createRegistries) {
+    createRegistries(context, options);
+  }
 
   // Fill out signatures
   updateSignatures(context, options);
