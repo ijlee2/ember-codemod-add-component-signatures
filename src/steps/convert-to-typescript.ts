@@ -3,11 +3,7 @@ import { findFiles, moveFiles } from '@codemod-utils/files';
 import type { Options } from '../types/index.js';
 
 export function convertToTypeScript(options: Options): void {
-  const { convertJavaScript, projectRoot, src } = options;
-
-  if (!convertJavaScript) {
-    return;
-  }
+  const { projectRoot, src } = options;
 
   const filePaths = findFiles(`${src}/components/**/*.{gjs,js}`, {
     projectRoot,
