@@ -40,7 +40,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
   projectRoot: 'tmp/has-declaration-file',
-  src: 'app/components',
+  src: 'app' as const,
 };
 
 export { codemodOptions, context, options };

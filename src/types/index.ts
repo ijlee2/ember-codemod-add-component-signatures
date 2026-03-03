@@ -35,7 +35,7 @@ type Options = {
   componentStructure: 'flat' | 'nested';
   convertJavaScript: boolean;
   projectRoot: string;
-  src: string;
+  src: 'app' | 'addon' | 'src';
 };
 
 export type {

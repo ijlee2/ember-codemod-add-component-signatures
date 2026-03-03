@@ -18,12 +18,12 @@ function normalizeComponentNames(
 export function findComponents(options: Options): UnfilteredExtensionMap {
   const { componentStructure, projectRoot, src } = options;
 
-  const filePaths = findFiles(`${src}/**/*.{gjs,gts,hbs,js,ts}`, {
+  const filePaths = findFiles(`${src}/components/**/*.{gjs,gts,hbs,js,ts}`, {
     ignoreList: ['**/*.d.ts'],
     projectRoot,
   }).map((filePath) => {
     return renamePathByDirectory(filePath, {
-      from: src,
+      from: `${src}/components`,
       to: '',
     });
   });

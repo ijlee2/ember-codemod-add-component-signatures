@@ -171,7 +171,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: true,
   projectRoot: 'tmp/my-v2-addon-javascript',
-  src: 'src/components',
+  src: 'src' as const,
 };
 
 export { codemodOptions, context, options };
