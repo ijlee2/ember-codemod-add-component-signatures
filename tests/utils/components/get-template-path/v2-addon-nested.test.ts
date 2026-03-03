@@ -14,6 +14,7 @@ function getPath(componentName: string): string {
   const options: Options = {
     componentStructure: 'nested',
     convertJavaScript: false,
+    createRegistries: false,
     projectRoot: 'tmp/my-v2-addon',
     src: 'src' as const,
   };

@@ -7,6 +7,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'nested',
   convertJavaScript: false,
+  createRegistries: false,
   projectRoot: 'tmp/my-v1-app-nested',
 };
 
@@ -300,6 +301,7 @@ const context: Context = {
 const options: Options = {
   componentStructure: 'nested',
   convertJavaScript: false,
+  createRegistries: false,
   projectRoot: 'tmp/my-v1-app-nested',
   src: 'app' as const,
 };

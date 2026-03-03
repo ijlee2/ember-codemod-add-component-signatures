@@ -9,6 +9,7 @@ import type {
 const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: true,
+  createRegistries: false,
   projectRoot: 'tmp/my-v2-addon-javascript',
 };
 
@@ -169,6 +170,7 @@ const context: Context = {
 const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: true,
+  createRegistries: false,
   projectRoot: 'tmp/my-v2-addon-javascript',
   src: 'src' as const,
 };
