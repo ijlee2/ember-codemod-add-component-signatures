@@ -28,7 +28,7 @@ interface UiFormSelectSignature {
   };
 }
 
-export default class UiFormSelect extends Component<UiFormSelectSignature> {
+export default class UiFormSelectComponent extends Component<UiFormSelectSignature> {
   get errorMessage(): string | undefined {
     const { isRequired } = this.args;
 
@@ -68,9 +68,9 @@ export default class UiFormSelect extends Component<UiFormSelectSignature> {
   {{@label}}
 
   {{#if @isRequired}}
-  <span aria-hidden="true">
-    *
-  </span>
+    <span aria-hidden="true">
+      *
+    </span>
   {{/if}}
   </label>
   </:label>
@@ -78,66 +78,59 @@ export default class UiFormSelect extends Component<UiFormSelectSignature> {
   <:field as |f|>
   <div class={{styles.select-container}}>
   <select
-  class={{local
-    styles
-    "select"
-    (if (or @isDisabled @isReadOnly) "is-disabled")
-  }}
-  data-test-field={{@label}}
-  disabled={{or @isDisabled @isReadOnly}}
-  id={{f.inputId}}
-  required={{@isRequired}}
-  {{on "change" this.updateValue}}
+    class={{local
+      styles
+      "select"
+      (if (or @isDisabled @isReadOnly) "is-disabled")
+    }}
+    data-test-field={{@label}}
+    disabled={{or @isDisabled @isReadOnly}}
+    id={{f.inputId}}
+    required={{@isRequired}}
+    {{on "change" this.updateValue}}
   >
-  {{#if (eq this.value "")}}
-    <option disabled selected value="">
-      {{t "components.ui.form.select.default-option"}}
-    </option>
-  {{else}}
-    <option disabled value="">
-      {{t "components.ui.form.select.default-option"}}
-    </option>
-  {{/if}}
-
-  {{#each this.options as |opt|}}
-    {{#if (eq opt.value this.value)}}
-      <option
-        data-test-option={{opt.label}}
-        selected
-        value={{opt.value}}
-      >
-        {{opt.label}}
+    {{#if (eq this.value "")}}
+      <option disabled selected value="">
+        {{t "components.ui.form.select.default-option"}}
       </option>
     {{else}}
-      <option data-test-option={{opt.label}} value={{opt.value}}>
-        {{opt.label}}
+      <option disabled value="">
+        {{t "components.ui.form.select.default-option"}}
       </option>
     {{/if}}
-  {{/each}}
+
+    {{#each this.options as |opt|}}
+      {{#if (eq opt.value this.value)}}
+        <option
+          data-test-option={{opt.label}}
+          selected
+          value={{opt.value}}
+        >
+          {{opt.label}}
+        </option>
+      {{else}}
+        <option data-test-option={{opt.label}} value={{opt.value}}>
+          {{opt.label}}
+        </option>
+      {{/if}}
+    {{/each}}
   </select>
 
   <button
-  aria-label={{t
-    "components.ui.form.select.clear.aria-label"
-    label=@label
-  }}
-  class={{styles.clear-button}}
-  data-test-button="Clear"
-  type="button"
-  {{on "click" this.resetValue}}
+    aria-label={{t
+      "components.ui.form.select.clear.aria-label"
+      label=@label
+    }}
+    class={{styles.clear-button}}
+    data-test-button="Clear"
+    type="button"
+    {{on "click" this.resetValue}}
   >
-  <span aria-hidden="true">
-    {{t "components.ui.form.select.clear.label"}}
-  </span>
+    <span aria-hidden="true">
+      {{t "components.ui.form.select.clear.label"}}
+    </span>
   </button>
   </div>
   </:field>
   </UiFormField></template>
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form::Select': typeof UiFormSelect;
-    'ui/form/select': typeof UiFormSelect;
-  }
 }

@@ -13,13 +13,6 @@ interface UiFormFieldSignature {
   };
 }
 
-export default class UiFormField extends Component<UiFormFieldSignature> {
+export default class extends Component<UiFormFieldSignature> {
   inputId = guidFor(this);
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form::Field': typeof UiFormField;
-    'ui/form/field': typeof UiFormField;
-  }
 }

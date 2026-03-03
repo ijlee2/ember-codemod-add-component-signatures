@@ -8,7 +8,7 @@ interface WidgetsWidget3Signature {
   Args: {};
 }
 
-export default class WidgetsWidget3 extends Component<WidgetsWidget3Signature> {
+export default class WidgetsWidget3Component extends Component<WidgetsWidget3Signature> {
   @tracked concertData = {} as Concert;
 
   constructor(owner: unknown, args: WidgetsWidget3Signature['Args']) {
@@ -19,12 +19,5 @@ export default class WidgetsWidget3 extends Component<WidgetsWidget3Signature> {
 
   loadData(): void {
     this.concertData = concertData;
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-3': typeof WidgetsWidget3;
-    'widgets/widget-3': typeof WidgetsWidget3;
   }
 }

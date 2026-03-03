@@ -23,7 +23,7 @@ interface UiFormCheckboxSignature {
   };
 }
 
-export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
+export default class UiFormCheckboxComponent extends Component<UiFormCheckboxSignature> {
   get errorMessage(): string | undefined {
     const { isRequired } = this.args;
 
@@ -68,9 +68,9 @@ export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
   {{@label}}
 
   {{#if @isRequired}}
-  <span aria-hidden="true">
-    *
-  </span>
+    <span aria-hidden="true">
+      *
+    </span>
   {{/if}}
   </label>
   </:label>
@@ -83,10 +83,10 @@ export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
   aria-readonly={{if @isReadOnly "true" "false"}}
   aria-required={{if @isRequired "true" "false"}}
   class={{local
-  styles
-  "checkbox"
-  (if this.isChecked "is-checked")
-  (if (or @isDisabled @isReadOnly) "is-disabled")
+    styles
+    "checkbox"
+    (if this.isChecked "is-checked")
+    (if (or @isDisabled @isReadOnly) "is-disabled")
   }}
   data-test-field={{@label}}
   role="checkbox"
@@ -95,16 +95,9 @@ export default class UiFormCheckbox extends Component<UiFormCheckboxSignature> {
   {{on "keypress" this.updateValueByPressingSpace}}
   >
   {{#if this.isChecked}}
-  <span aria-hidden="true">✔</span>
+    <span aria-hidden="true">✔</span>
   {{/if}}
   </span>
   </:field>
   </UiFormField></template>
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form::Checkbox': typeof UiFormCheckbox;
-    'ui/form/checkbox': typeof UiFormCheckbox;
-  }
 }

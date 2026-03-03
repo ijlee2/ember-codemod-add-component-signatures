@@ -7,13 +7,6 @@ interface WidgetsWidget4MemoBodySignature {
   };
 }
 
-const WidgetsWidget4MemoBody = class extends Component<WidgetsWidget4MemoBodySignature> {}
+const Body = class extends Component<WidgetsWidget4MemoBodySignature> {}
 
-export default WidgetsWidget4MemoBody;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Widgets::Widget-4::Memo::Body': typeof WidgetsWidget4MemoBody;
-    'widgets/widget-4/memo/body': typeof WidgetsWidget4MemoBody;
-  }
-}
+export default Body;

@@ -22,7 +22,7 @@ interface UiFormTextareaSignature {
   };
 }
 
-export default class UiFormTextarea extends Component<UiFormTextareaSignature> {
+export default class UiFormTextareaComponent extends Component<UiFormTextareaSignature> {
   get errorMessage(): string | undefined {
     const { isRequired } = this.args;
 
@@ -52,9 +52,9 @@ export default class UiFormTextarea extends Component<UiFormTextareaSignature> {
   {{@label}}
 
   {{#if @isRequired}}
-  <span aria-hidden="true">
-    *
-  </span>
+    <span aria-hidden="true">
+      *
+    </span>
   {{/if}}
   </label>
   </:label>
@@ -62,9 +62,9 @@ export default class UiFormTextarea extends Component<UiFormTextareaSignature> {
   <:field as |f|>
   <textarea
   class={{local
-  styles
-  "textarea"
-  (if (or @isDisabled @isReadOnly) "is-disabled")
+    styles
+    "textarea"
+    (if (or @isDisabled @isReadOnly) "is-disabled")
   }}
   data-test-field={{@label}}
   disabled={{@isDisabled}}
@@ -78,11 +78,4 @@ export default class UiFormTextarea extends Component<UiFormTextareaSignature> {
   ></textarea>
   </:field>
   </UiFormField></template>
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form::Textarea': typeof UiFormTextarea;
-    'ui/form/textarea': typeof UiFormTextarea;
-  }
 }

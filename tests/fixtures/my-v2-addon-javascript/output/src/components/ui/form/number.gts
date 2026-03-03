@@ -25,7 +25,7 @@ interface UiFormNumberSignature {
   };
 }
 
-export default class UiFormNumber extends Component<UiFormNumberSignature> {
+export default class UiFormNumberComponent extends Component<UiFormNumberSignature> {
   get errorMessage() {
     const { isRequired } = this.args;
 
@@ -62,9 +62,9 @@ export default class UiFormNumber extends Component<UiFormNumberSignature> {
   {{@label}}
 
   {{#if @isRequired}}
-  <span aria-hidden="true">
-    *
-  </span>
+    <span aria-hidden="true">
+      *
+    </span>
   {{/if}}
   </label>
   </:label>
@@ -72,9 +72,9 @@ export default class UiFormNumber extends Component<UiFormNumberSignature> {
   <:field as |f|>
   <input
   class={{local
-  styles
-  "input"
-  (if (or @isDisabled @isReadOnly) "is-disabled")
+    styles
+    "input"
+    (if (or @isDisabled @isReadOnly) "is-disabled")
   }}
   data-test-field={{@label}}
   disabled={{@isDisabled}}
@@ -91,11 +91,4 @@ export default class UiFormNumber extends Component<UiFormNumberSignature> {
   />
   </:field>
   </UiFormField></template>
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form::Number': typeof UiFormNumber;
-    'ui/form/number': typeof UiFormNumber;
-  }
 }

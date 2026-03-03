@@ -27,7 +27,7 @@ interface UiFormSignature {
   };
 }
 
-export default class UiForm extends Component<UiFormSignature> {
+export default class UiFormComponent extends Component<UiFormSignature> {
   data = new TrackedObject(this.args.data ?? {});
 
   @action async submitForm(event) {
@@ -57,58 +57,51 @@ export default class UiForm extends Component<UiFormSignature> {
 
   <ContainerQuery @features={{hash wide=(width min=480)}} as |CQ|>
   {{yield
-  (hash
-    Checkbox=(component
-      UiFormCheckbox
-      data=this.data
-      isInline=true
-      isWide=CQ.features.wide
-      onUpdate=this.updateData
+    (hash
+      Checkbox=(component
+        UiFormCheckbox
+        data=this.data
+        isInline=true
+        isWide=CQ.features.wide
+        onUpdate=this.updateData
+      )
+      Input=(component
+        UiFormInput
+        data=this.data
+        isWide=CQ.features.wide
+        onUpdate=this.updateData
+      )
+      Number=(component
+        UiFormNumber
+        data=this.data
+        isWide=CQ.features.wide
+        onUpdate=this.updateData
+      )
+      Select=(component
+        UiFormSelect
+        data=this.data
+        isWide=CQ.features.wide
+        onUpdate=this.updateData
+      )
+      Textarea=(component
+        UiFormTextarea
+        data=this.data
+        isWide=CQ.features.wide
+        onUpdate=this.updateData
+      )
     )
-    Input=(component
-      UiFormInput
-      data=this.data
-      isWide=CQ.features.wide
-      onUpdate=this.updateData
-    )
-    Number=(component
-      UiFormNumber
-      data=this.data
-      isWide=CQ.features.wide
-      onUpdate=this.updateData
-    )
-    Select=(component
-      UiFormSelect
-      data=this.data
-      isWide=CQ.features.wide
-      onUpdate=this.updateData
-    )
-    Textarea=(component
-      UiFormTextarea
-      data=this.data
-      isWide=CQ.features.wide
-      onUpdate=this.updateData
-    )
-  )
   }}
   </ContainerQuery>
 
   <div class={{styles.actions}}>
   <button
-  class={{styles.submit-button}}
-  data-test-button="Submit"
-  type="submit"
+    class={{styles.submit-button}}
+    data-test-button="Submit"
+    type="submit"
   >
-  {{t "components.ui.form.submit"}}
+    {{t "components.ui.form.submit"}}
   </button>
   </div>
   </form>
   {{/let}}</template>
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form': typeof UiForm;
-    'ui/form': typeof UiForm;
-  }
 }

@@ -65,9 +65,9 @@ export default class UiFormInput extends Component<UiFormInputSignature> {
   {{@label}}
 
   {{#if @isRequired}}
-  <span aria-hidden="true">
-    *
-  </span>
+    <span aria-hidden="true">
+      *
+    </span>
   {{/if}}
   </label>
   </:label>
@@ -75,9 +75,9 @@ export default class UiFormInput extends Component<UiFormInputSignature> {
   <:field as |f|>
   <input
   class={{local
-  styles
-  "input"
-  (if (or @isDisabled @isReadOnly) "is-disabled")
+    styles
+    "input"
+    (if (or @isDisabled @isReadOnly) "is-disabled")
   }}
   data-test-field={{@label}}
   disabled={{@isDisabled}}
@@ -91,11 +91,4 @@ export default class UiFormInput extends Component<UiFormInputSignature> {
   />
   </:field>
   </UiFormField></template>
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Ui::Form::Input': typeof UiFormInput;
-    'ui/form/input': typeof UiFormInput;
-  }
 }
