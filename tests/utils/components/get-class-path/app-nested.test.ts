@@ -15,7 +15,7 @@ function getPath(componentName: string): string {
     componentStructure: 'nested',
     convertJavaScript: false,
     projectRoot: 'tmp/my-v1-app',
-    src: 'app/components',
+    src: 'app' as const,
   };
 
   return getClassPath(componentName, extensions, options);

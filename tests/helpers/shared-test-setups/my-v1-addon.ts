@@ -302,7 +302,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
   projectRoot: 'tmp/my-v1-addon',
-  src: 'addon/components',
+  src: 'addon' as const,
 };
 
 export { codemodOptions, context, options };

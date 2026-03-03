@@ -302,7 +302,7 @@ const options: Options = {
   componentStructure: 'nested',
   convertJavaScript: false,
   projectRoot: 'tmp/my-v1-app-nested',
-  src: 'app/components',
+  src: 'app' as const,
 };
 
 export { codemodOptions, context, options };

@@ -49,7 +49,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
   projectRoot: 'tmp/my-v1-app-template-tag',
-  src: 'app/components',
+  src: 'app' as const,
 };
 
 export { codemodOptions, context, options };

@@ -257,7 +257,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
   projectRoot: 'tmp/has-no-args',
-  src: 'app/components',
+  src: 'app' as const,
 };
 
 export { codemodOptions, context, options };
