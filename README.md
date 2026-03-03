@@ -15,8 +15,8 @@ You can run this codemod to get started.
 ## Features
 
 - Scaffolds signature for components
-- Adds template registry for components
-- Supports `<template>` tag components
+- Adds template registry for components (Glint v1)
+- Supports `<template>` tag (Glint v2)
 
 <div align="center">
   <figure>
@@ -84,6 +84,18 @@ By default, the codemod ignores component classes written in `*.{js,gjs}`. Pass 
 
 ```sh
 pnpx ember-codemod-add-component-signatures --convert-javascript
+```
+
+</details>
+
+<details>
+
+<summary>Optional: Create registries</summary>
+
+By default, the codemod doesn't add registries to component classes, because these registries are unnecessary for Glint v2 (strict mode templates). Pass `--create-registries` if you use Glint v1 (loose mode templates).
+
+```sh
+pnpx ember-codemod-add-component-signatures --create-registries
 ```
 
 </details>
