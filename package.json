@@ -1,6 +1,6 @@
 {
   "name": "ember-codemod-add-component-signatures",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Codemod to add component signatures",
   "keywords": [
     "codemod",

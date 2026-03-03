@@ -1,5 +1,16 @@
 # Changelog
 
+## 5.1.0
+
+### Minor Changes
+
+- [#87](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/87) Removed the need for --type ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#86](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/86) Redefined src to be the source directory ([@ijlee2](https://github.com/ijlee2))
+- [#85](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/85) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.0.0
 
 ### Major Changes
