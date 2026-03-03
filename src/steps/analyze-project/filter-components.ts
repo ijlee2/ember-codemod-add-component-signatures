@@ -9,7 +9,10 @@ import type {
   Options,
   UnfilteredExtensionMap,
 } from '../../types/index.js';
-import { getBaseComponent, getClassPath } from '../../utils/components.js';
+import {
+  getBaseComponent,
+  getClassPath,
+} from '../../utils/components/index.js';
 
 function isSupported(file: string): boolean {
   const { importPath } = getBaseComponent(file);
@@ -26,35 +29,33 @@ export function filterComponents(
 ): ExtensionMap {
   const { projectRoot } = options;
 
-  const filteredEntries = Array.from(extensionMap.entries()).filter(
-    ([componentName, extensions]) => {
-      const hasClassJavaScript =
-        extensions.has('.gjs') || extensions.has('.js');
+  const newExtensionMap: ExtensionMap = new Map();
 
-      if (hasClassJavaScript) {
-        return false;
-      }
+  for (const [componentName, extensions] of extensionMap) {
+    const hasClassJavaScript = extensions.has('.gjs') || extensions.has('.js');
 
-      const hasClassTypeScript =
-        extensions.has('.gts') || extensions.has('.ts');
+    if (hasClassJavaScript) {
+      continue;
+    }
 
-      // hbs file only
-      if (!hasClassTypeScript) {
-        return true;
-      }
+    const filteredExtensions = extensions as Set<ComponentExtension>;
+    const hasClassTypeScript =
+      filteredExtensions.has('.gts') || filteredExtensions.has('.ts');
 
-      const filePath = getClassPath(
-        componentName,
-        extensions as Set<ComponentExtension>,
-        options,
-      );
+    // hbs file only
+    if (!hasClassTypeScript) {
+      newExtensionMap.set(componentName, filteredExtensions);
 
-      const file = readFileSync(join(projectRoot, filePath), 'utf8');
-      const ecmaFile = toEcma(file);
+      continue;
+    }
 
-      return isSupported(ecmaFile);
-    },
-  );
+    const filePath = getClassPath(componentName, filteredExtensions, options);
+    const file = readFileSync(join(projectRoot, filePath), 'utf8');
 
-  return new Map(filteredEntries) as unknown as ExtensionMap;
+    if (isSupported(toEcma(file))) {
+      newExtensionMap.set(componentName, filteredExtensions);
+    }
+  }
+
+  return newExtensionMap;
 }

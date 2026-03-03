@@ -6,7 +6,7 @@ import type {
   ComponentExtension,
   Options,
 } from '../../../../src/types/index.js';
-import { getTemplatePath } from '../../../../src/utils/components.js';
+import { getTemplatePath } from '../../../../src/utils/components/index.js';
 
 function getPath(componentName: string): string {
   const extensions = new Set<ComponentExtension>(['.hbs', '.ts']);

@@ -1,6 +1,6 @@
 import { AST } from '@codemod-utils/ast-javascript';
 
-import type { Signature } from '../../types/index.js';
+import type { Signature } from '../../../types/index.js';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function builderConvertTsTypeToKeyword(tsType: string) {

@@ -2,7 +2,7 @@ import { normalize } from 'node:path';
 
 import { assert, test } from '@codemod-utils/tests';
 
-import { getExtensionMap } from '../../../../src/utils/components.js';
+import { getExtensionMap } from '../../../../src/utils/components/index.js';
 
 test('utils | components | get-extension-map > base case', function () {
   const filePaths = [

@@ -1,6 +1,6 @@
 import { assert, test } from '@codemod-utils/tests';
 
-import { getBlockParameterType } from '../../../../src/utils/components.js';
+import { getBlockParameterType } from '../../../../src/utils/components/index.js';
 
 test('utils | components | get-block-parameter-type > base case', function () {
   assert.strictEqual(getBlockParameterType('BooleanLiteral'), 'boolean');

@@ -10,8 +10,8 @@ import {
 } from '@codemod-utils/files';
 
 import type { Context, Options } from '../types/index.js';
-import { getClassPath } from '../utils/components.js';
-import { createSignature } from './create-signatures/index.js';
+import { getClassPath } from '../utils/components/index.js';
+import { createSignature } from '../utils/create-signatures/index.js';
 
 export function createSignatures(context: Context, options: Options): void {
   const { extensionMap } = context;

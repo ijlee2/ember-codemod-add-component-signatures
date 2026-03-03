@@ -1,6 +1,6 @@
 import { assert, test } from '@codemod-utils/tests';
 
-import { getBaseComponent } from '../../../../src/utils/components.js';
+import { getBaseComponent } from '../../../../src/utils/components/index.js';
 
 test('utils | components | get-base-component > Glimmer component', function () {
   let file = `import Component from '@glimmer/component';`;

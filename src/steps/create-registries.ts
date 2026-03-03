@@ -10,12 +10,12 @@ import {
 } from '@codemod-utils/files';
 
 import type { Context, Options } from '../types/index.js';
-import { getClassPath } from '../utils/components.js';
+import { getClassPath } from '../utils/components/index.js';
 import {
   createRegistry,
   hasRegistry,
   renameComponent,
-} from './create-registries/index.js';
+} from '../utils/create-registries/index.js';
 
 export function createRegistries(context: Context, options: Options): void {
   const { extensionMap } = context;
