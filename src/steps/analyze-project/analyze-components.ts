@@ -10,12 +10,12 @@ import type {
   Options,
   SignatureMap,
 } from '../../types/index.js';
-import { getClassPath, getTemplatePath } from '../../utils/components/index.js';
 import {
   findArguments,
   findBlocks,
   findElement,
-} from './analyze-components/index.js';
+} from '../../utils/analyze-project/index.js';
+import { getClassPath, getTemplatePath } from '../../utils/components/index.js';
 
 function getFiles(
   componentName: ComponentName,

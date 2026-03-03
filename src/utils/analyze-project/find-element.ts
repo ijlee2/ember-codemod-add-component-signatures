@@ -1,7 +1,7 @@
 import { AST } from '@codemod-utils/ast-template';
 
-import type { Signature } from '../../../types/index.js';
-import { getHtmlInterface } from '../../../utils/components/index.js';
+import type { Signature } from '../../types/index.js';
+import { getHtmlInterface } from '../components/index.js';
 
 export function findElement(templateFile: string): Signature['Element'] {
   const traverse = AST.traverse();

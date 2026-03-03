@@ -1,10 +1,10 @@
 import { AST } from '@codemod-utils/ast-template';
 
-import type { Signature } from '../../../types/index.js';
+import type { Signature } from '../../types/index.js';
 import {
   getBlockParameterType,
   normalizeBlockName,
-} from '../../../utils/components/index.js';
+} from '../components/index.js';
 
 export function findBlocks(templateFile: string): Signature['Blocks'] {
   const traverse = AST.traverse();
