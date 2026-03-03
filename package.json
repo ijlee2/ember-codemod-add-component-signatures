@@ -44,6 +44,7 @@
     "@codemod-utils/blueprints": "^3.0.1",
     "@codemod-utils/ember": "^4.1.0",
     "@codemod-utils/files": "^4.0.0",
+    "@codemod-utils/package-json": "^4.0.0",
     "yargs": "^18.0.0"
   },
   "devDependencies": {
