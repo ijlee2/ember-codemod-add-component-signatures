@@ -40,7 +40,7 @@ Step 1. Quickly migrate.
 
 ```sh
 cd <path/to/your/project>
-npx ember-codemod-add-component-signatures <arguments>
+pnpx ember-codemod-add-component-signatures <arguments>
 ```
 
 Step 2. Review the package.
@@ -67,9 +67,9 @@ Nice to do:
 You must pass `--type` to indicate what type of project you have.
 
 ```sh
-npx ember-codemod-add-component-signatures --type app
-npx ember-codemod-add-component-signatures --type v1-addon
-npx ember-codemod-add-component-signatures --type v2-addon
+pnpx ember-codemod-add-component-signatures --type app
+pnpx ember-codemod-add-component-signatures --type v1-addon
+pnpx ember-codemod-add-component-signatures --type v2-addon
 ```
 
 <details>
@@ -79,7 +79,7 @@ npx ember-codemod-add-component-signatures --type v2-addon
 By default, an Octane project has the flat component structure. Pass `--component-structure` to indicate otherwise.
 
 ```sh
-npx ember-codemod-add-component-signatures --component-structure nested
+pnpx ember-codemod-add-component-signatures --component-structure nested
 ```
 
 </details>
@@ -91,7 +91,7 @@ npx ember-codemod-add-component-signatures --component-structure nested
 By default, the codemod ignores component classes written in `*.{js,gjs}`. Pass `--convert-javascript` to allow the codemod to change the file extension to `*.{ts,gts}` and add the component signature.
 
 ```sh
-npx ember-codemod-add-component-signatures --convert-javascript
+pnpx ember-codemod-add-component-signatures --convert-javascript
 ```
 
 </details>
@@ -103,7 +103,7 @@ npx ember-codemod-add-component-signatures --convert-javascript
 Pass `--root` to run the codemod on a project somewhere else (i.e. not in the current directory).
 
 ```sh
-npx ember-codemod-add-component-signatures --root <path/to/your/project>
+pnpx ember-codemod-add-component-signatures --root <path/to/your/project>
 ```
 
 </details>
