@@ -8,7 +8,6 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'nested',
   convertJavaScript: false,
   projectRoot: 'tmp/my-v1-app-nested',
-  projectType: 'app',
 };
 
 const context: Context = {

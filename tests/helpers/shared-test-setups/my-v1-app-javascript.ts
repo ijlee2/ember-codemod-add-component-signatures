@@ -10,7 +10,6 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: true,
   projectRoot: 'tmp/my-v1-app-javascript',
-  projectType: 'app',
 };
 
 const context: Context = {
