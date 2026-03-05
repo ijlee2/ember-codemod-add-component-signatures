@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.4.0
+
+### Minor Changes
+
+- [#92](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/92) Allowed limiting change by entity ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#91](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/91) Refactored code ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.3.0
 
 ### Minor Changes
