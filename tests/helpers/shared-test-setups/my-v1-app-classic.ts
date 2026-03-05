@@ -8,6 +8,7 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/my-v1-app-classic',
 };
 
@@ -20,6 +21,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/my-v1-app-classic',
   src: 'app' as const,
 };

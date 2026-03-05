@@ -8,6 +8,7 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'nested',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/my-v1-app-nested',
 };
 
@@ -302,6 +303,7 @@ const options: Options = {
   componentStructure: 'nested',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/my-v1-app-nested',
   src: 'app' as const,
 };

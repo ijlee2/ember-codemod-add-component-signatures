@@ -2,6 +2,7 @@ type CodemodOptions = {
   componentStructure: 'flat' | 'nested';
   convertJavaScript: boolean;
   createRegistries: boolean;
+  entity: string | undefined;
   projectRoot: string;
 };
 
@@ -35,6 +36,7 @@ type Options = {
   componentStructure: 'flat' | 'nested';
   convertJavaScript: boolean;
   createRegistries: boolean;
+  entity: string | undefined;
   projectRoot: string;
   src: 'app' | 'addon' | 'src';
 };

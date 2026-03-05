@@ -15,6 +15,7 @@ function getPath(componentName: string): string {
     componentStructure: 'flat',
     convertJavaScript: false,
     createRegistries: false,
+    entity: undefined,
     projectRoot: 'tmp/my-v2-addon',
     src: 'src' as const,
   };

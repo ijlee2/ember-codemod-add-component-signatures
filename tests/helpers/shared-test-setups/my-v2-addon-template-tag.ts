@@ -8,6 +8,7 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/my-v2-addon-template-tag',
 };
 
@@ -169,6 +170,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/my-v2-addon-template-tag',
   src: 'src' as const,
 };

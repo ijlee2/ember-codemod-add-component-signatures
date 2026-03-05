@@ -28,6 +28,10 @@ const argv = yargs(hideBin(process.argv))
     describe: 'Create registries for Glint v1?',
     type: 'boolean',
   })
+  .option('entity', {
+    describe: 'Which entity to consider',
+    type: 'string',
+  })
   .option('root', {
     describe: 'Location of your Ember project',
     type: 'string',
@@ -40,6 +44,7 @@ const codemodOptions: CodemodOptions = {
   ] as CodemodOptions['componentStructure'],
   convertJavaScript: argv['convert-javascript'],
   createRegistries: argv['create-registries'],
+  entity: argv['entity'],
   projectRoot: argv['root'] ?? process.cwd(),
 };
 

@@ -8,6 +8,7 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/has-hbs-file-only',
 };
 
@@ -40,6 +41,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/has-hbs-file-only',
   src: 'app' as const,
 };

@@ -10,6 +10,7 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: true,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/my-v2-addon-javascript',
 };
 
@@ -36,6 +37,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: true,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/my-v2-addon-javascript',
   src: 'src' as const,
 };

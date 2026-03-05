@@ -52,6 +52,7 @@ test('steps | convert-to-typescript > base case', function () {
     componentStructure: 'flat',
     convertJavaScript: true,
     createRegistries: false,
+    entity: undefined,
     projectRoot,
     src: 'app' as const,
   };
