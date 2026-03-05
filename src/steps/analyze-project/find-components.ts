@@ -15,10 +15,16 @@ function normalizeComponentNames(
   );
 }
 
+function getPattern(options: Options): string[] {
+  const { src } = options;
+
+  return [`${src}/components/**/*.{gjs,gts,hbs,js,ts}`];
+}
+
 export function findComponents(options: Options): UnfilteredExtensionMap {
   const { componentStructure, projectRoot, src } = options;
 
-  const filePaths = findFiles(`${src}/components/**/*.{gjs,gts,hbs,js,ts}`, {
+  const filePaths = findFiles(getPattern(options), {
     ignoreList: ['**/*.d.ts'],
     projectRoot,
   }).map((filePath) => {
