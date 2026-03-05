@@ -15,6 +15,7 @@ function getPath(componentName: string): string {
     componentStructure: 'nested',
     convertJavaScript: false,
     createRegistries: false,
+    entity: undefined,
     projectRoot: 'tmp/my-v1-app',
     src: 'app' as const,
   };

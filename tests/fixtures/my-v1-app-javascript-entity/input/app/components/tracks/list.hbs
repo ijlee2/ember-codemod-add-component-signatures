@@ -1,0 +1,32 @@
+<ul
+  data-test-list="Tracks"
+  data-css-grid="{{this.numRows}} x {{this.numColumns}}"
+  local-class="list"
+  {{dynamic-css-grid
+    numColumns=this.numColumns
+    numRows=this.numRows
+  }}
+  ...attributes
+>
+  {{#each @tracks as |track index|}}
+    <li data-test-item local-class="item">
+      <div>
+        {{add index 1}}.
+        <span data-test-field="Title">
+          {{track.name}}
+        </span>
+      </div>
+
+      {{#if track.isExplicit}}
+        <span aria-label="Explicit" data-test-field="Explicit">
+          {{svg-jar
+            "alpha-e-box"
+            class=(local-class "icon-explicit")
+            desc="Letter E, which stands for explicit"
+            role="img"
+          }}
+        </span>
+      {{/if}}
+    </li>
+  {{/each}}
+</ul>

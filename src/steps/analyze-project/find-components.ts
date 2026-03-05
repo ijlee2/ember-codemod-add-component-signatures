@@ -1,3 +1,5 @@
+import { join, sep } from 'node:path';
+
 import { findFiles, renamePathByDirectory } from '@codemod-utils/files';
 
 import type { Options, UnfilteredExtensionMap } from '../../types/index.js';
@@ -15,10 +17,21 @@ function normalizeComponentNames(
   );
 }
 
-function getPattern(options: Options): string[] {
-  const { src } = options;
+function normalizedJoin(...folders: string[]): string {
+  return join(...folders).replaceAll(sep, '/');
+}
 
-  return [`${src}/components/**/*.{gjs,gts,hbs,js,ts}`];
+function getPattern(options: Options): string[] {
+  const { entity, src } = options;
+
+  if (entity === undefined) {
+    return [`${src}/components/**/*.{gjs,gts,hbs,js,ts}`];
+  }
+
+  return [
+    normalizedJoin(src, 'components', `${entity}.{gjs,gts,hbs,js,ts}`),
+    normalizedJoin(src, 'components', entity, '**/*.{gjs,gts,hbs,js,ts}'),
+  ];
 }
 
 export function findComponents(options: Options): UnfilteredExtensionMap {

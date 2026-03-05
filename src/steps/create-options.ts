@@ -8,6 +8,7 @@ export function createOptions(codemodOptions: CodemodOptions): Options {
     componentStructure,
     convertJavaScript,
     createRegistries,
+    entity,
     projectRoot,
   } = codemodOptions;
 
@@ -24,6 +25,7 @@ export function createOptions(codemodOptions: CodemodOptions): Options {
     componentStructure,
     convertJavaScript,
     createRegistries,
+    entity,
     projectRoot,
     src,
   };

@@ -36,7 +36,7 @@ You can run this codemod to get started.
 
 ## Usage
 
-Step 1. Quickly migrate.
+Step 1. Quickly migrate.<sup>1</sup>
 
 ```sh
 cd <path/to/your/project>
@@ -50,19 +50,23 @@ Step 2. Review the package.
 
 For more information, please check the [FAQ](#frequently-asked-questions).
 
-
-### Prerequisites
-
-Must:
-
-- Migrate to the Octane layout (flat or nested). You can leverage the codemods for [classic](https://github.com/ember-codemods/ember-component-template-colocation-migrator) and [pod](https://github.com/ijlee2/ember-codemod-pod-to-octane) layouts.
-
-Nice to do:
-
-- Refactor code (e.g. Glimmerize components, meet the linting rule `no-implicit-this`) to help the codemod parse code.
+<sup>1. The codemod assumes that your apps and addons follow the Octane layout (flat or nested). If not, you can run codemods to move away from [classic](https://github.com/ember-codemods/ember-component-template-colocation-migrator) and [pod](https://github.com/ijlee2/ember-codemod-pod-to-octane).</sup>
 
 
 ### Arguments
+
+<details>
+
+<summary>Optional: Limit entity to consider</summary>
+
+By default, the codemod considers all files and folders for components, routes, and tests. Pass `--entity` to limit the search to 1 entity and its sub-entities (if any). You may use curly braces to specify multiple entities.
+
+```sh
+# `ui/form` only
+pnpx ember-codemod-add-component-signatures --entity ui/form
+```
+
+</details>
 
 <details>
 

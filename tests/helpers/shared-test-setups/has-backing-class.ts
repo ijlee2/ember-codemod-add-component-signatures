@@ -8,6 +8,7 @@ const codemodOptions: CodemodOptions = {
   componentStructure: 'flat',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/has-backing-class',
 };
 
@@ -248,6 +249,7 @@ const options: Options = {
   componentStructure: 'flat',
   convertJavaScript: false,
   createRegistries: false,
+  entity: undefined,
   projectRoot: 'tmp/has-backing-class',
   src: 'app' as const,
 };
