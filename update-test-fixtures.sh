@@ -45,6 +45,15 @@ cp -r "tests/fixtures/my-v1-app-javascript/input" "tests/fixtures/my-v1-app-java
   --root "tests/fixtures/my-v1-app-javascript/output"
 
 # Update fixtures
+rm -r "tests/fixtures/my-v1-app-javascript-entity/output"
+cp -r "tests/fixtures/my-v1-app-javascript-entity/input" "tests/fixtures/my-v1-app-javascript-entity/output"
+
+./dist/bin/ember-codemod-add-component-signatures.js \
+  --convert-javascript \
+  --entity "tracks" \
+  --root "tests/fixtures/my-v1-app-javascript-entity/output"
+
+# Update fixtures
 rm -r "tests/fixtures/my-v1-app-nested/output"
 cp -r "tests/fixtures/my-v1-app-nested/input" "tests/fixtures/my-v1-app-nested/output"
 
