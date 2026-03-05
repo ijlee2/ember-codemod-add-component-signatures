@@ -1,11 +1,24 @@
+import { join, sep } from 'node:path';
+
 import { findFiles, moveFiles } from '@codemod-utils/files';
 
 import type { Options } from '../types/index.js';
 
-function getPattern(options: Options): string[] {
-  const { src } = options;
+function normalizedJoin(...folders: string[]): string {
+  return join(...folders).replaceAll(sep, '/');
+}
 
-  return [`${src}/components/**/*.{gjs,js}`];
+function getPattern(options: Options): string[] {
+  const { entity, src } = options;
+
+  if (entity === undefined) {
+    return [`${src}/components/**/*.{gjs,js}`];
+  }
+
+  return [
+    normalizedJoin(src, 'components', `${entity}.{gjs,js}`),
+    normalizedJoin(src, 'components', entity, '**/*.{gjs,js}'),
+  ];
 }
 
 export function convertToTypeScript(options: Options): void {
