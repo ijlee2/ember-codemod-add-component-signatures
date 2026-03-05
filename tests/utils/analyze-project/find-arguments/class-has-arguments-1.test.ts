@@ -27,7 +27,7 @@ test('utils | analyze-project | find-arguments > class has arguments (1)', funct
 
   assert.deepStrictEqual(findArguments(templateFile, classFile), [
     'dataAttributePrefix',
-    // 'defaultDimensions',
+    'defaultDimensions',
     'tagName',
   ]);
 });
