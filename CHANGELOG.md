@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.4.1
+
+### Patch Changes
+
+- [#93](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/93) Corrected finding arguments in a class ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.4.0
 
 ### Minor Changes
