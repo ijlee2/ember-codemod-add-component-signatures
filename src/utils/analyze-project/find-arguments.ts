@@ -15,8 +15,11 @@ function analyzeClass(file: string | undefined): Set<string> {
 
   traverse(file, {
     visitMemberExpression(node) {
+      this.traverse(node);
+
       if (
         node.value.object.type !== 'MemberExpression' ||
+        node.value.object.property.type !== 'Identifier' ||
         node.value.object.property.name !== 'args'
       ) {
         return false;
