@@ -11,8 +11,8 @@ type WorkerData = {
 const { datasets } = workerData as WorkerData;
 
 runTask(task, datasets)
-  .then((results) => {
-    parentPort?.postMessage(results);
+  .then((result) => {
+    parentPort?.postMessage(result);
   })
   .catch((error) => {
     throw error;
