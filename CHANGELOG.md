@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.4.3
+
+### Patch Changes
+
+- [#95](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/95) Standardized code ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.4.2
 
 ### Patch Changes
