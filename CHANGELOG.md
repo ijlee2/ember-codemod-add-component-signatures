@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.4.4
+
+### Patch Changes
+
+- [#96](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/96) Updated @codemod-utils/threads to 0.4.0 ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.4.3
 
 ### Patch Changes
