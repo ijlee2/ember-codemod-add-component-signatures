@@ -33,6 +33,7 @@ export function updateReferences(file: string, options: Options): string {
             ),
           ];
 
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
           path.parentPath.value.push(...nodesToAdd);
 
           return AST.builders.variableDeclaration('const', [

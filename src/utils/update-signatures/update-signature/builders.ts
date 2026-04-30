@@ -2,6 +2,8 @@ import { AST } from '@codemod-utils/ast-javascript';
 
 import type { Signature } from '../../../types/index.js';
 
+type PropertySignature = ReturnType<typeof AST.builders.tsPropertySignature>;
+
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function builderConvertTsTypeToKeyword(tsType: string) {
   switch (tsType) {
@@ -36,8 +38,7 @@ function needsQuotations(key: string): boolean {
   return key.includes('-');
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function builderCreateArgsNode(signature: Signature) {
+export function builderCreateArgsNode(signature: Signature): PropertySignature {
   const members: unknown[] = [];
 
   (signature.Args ?? []).forEach((argumentName) => {
@@ -53,16 +54,17 @@ export function builderCreateArgsNode(signature: Signature) {
 
   return AST.builders.tsPropertySignature(
     AST.builders.identifier('Args'),
-    // @ts-expect-error: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     AST.builders.tsTypeAnnotation(AST.builders.tsTypeLiteral(members)),
     false,
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function builderCreateBlocksNode(signature: Signature) {
+export function builderCreateBlocksNode(
+  signature: Signature,
+): PropertySignature | undefined {
   if (signature.Blocks === undefined) {
-    return;
+    return undefined;
   }
 
   const members: unknown[] = [];
@@ -84,16 +86,17 @@ export function builderCreateBlocksNode(signature: Signature) {
 
   return AST.builders.tsPropertySignature(
     AST.builders.identifier('Blocks'),
-    // @ts-expect-error: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     AST.builders.tsTypeAnnotation(AST.builders.tsTypeLiteral(members)),
     false,
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function builderCreateElementNode(signature: Signature) {
+export function builderCreateElementNode(
+  signature: Signature,
+): PropertySignature | undefined {
   if (signature.Element === undefined) {
-    return;
+    return undefined;
   }
 
   return AST.builders.tsPropertySignature(

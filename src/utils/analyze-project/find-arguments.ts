@@ -14,28 +14,28 @@ function analyzeClass(file: string | undefined): Set<string> {
   const traverse = ASTJavaScript.traverse(true);
 
   traverse(file, {
-    visitMemberExpression(node) {
-      this.traverse(node);
+    visitMemberExpression(path) {
+      this.traverse(path);
 
       if (
-        node.value.object.type !== 'MemberExpression' ||
-        node.value.object.property.type !== 'Identifier' ||
-        node.value.object.property.name !== 'args'
+        path.node.object.type !== 'MemberExpression' ||
+        path.node.object.property.type !== 'Identifier' ||
+        path.node.object.property.name !== 'args'
       ) {
         return false;
       }
 
-      switch (node.value.property.type) {
+      switch (path.node.property.type) {
         // Matches the pattern `this.args.someArgument`
         case 'Identifier': {
-          args.add(node.value.property.name as string);
+          args.add(path.node.property.name);
 
           break;
         }
 
         // Matches the pattern `this.args['someArgument']`
         case 'StringLiteral': {
-          args.add(node.value.property.value as string);
+          args.add(path.node.property.value);
 
           break;
         }
@@ -44,8 +44,8 @@ function analyzeClass(file: string | undefined): Set<string> {
       return false;
     },
 
-    visitVariableDeclarator(node) {
-      const { id: leftHandSide, init: rightHandSide } = node.value;
+    visitVariableDeclarator(path) {
+      const { id: leftHandSide, init: rightHandSide } = path.node;
       let isValid = false;
 
       switch (rightHandSide?.type) {
@@ -85,18 +85,23 @@ function analyzeClass(file: string | undefined): Set<string> {
         return false;
       }
 
-      // @ts-expect-error: Assume that types from external packages are correct
+      if (leftHandSide.type !== 'ObjectPattern') {
+        return false;
+      }
+
       leftHandSide.properties.forEach((property) => {
+        if (property.type !== 'ObjectProperty') {
+          return;
+        }
+
         switch (property.key.type) {
           case 'Identifier': {
-            args.add(property.key.name as string);
-
+            args.add(property.key.name);
             break;
           }
 
           case 'StringLiteral': {
-            args.add(property.key.value as string);
-
+            args.add(property.key.value);
             break;
           }
         }

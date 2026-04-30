@@ -7,6 +7,10 @@ import {
   builderCreateElementNode,
 } from './update-signature/builders.js';
 
+type InterfaceDeclaration = ReturnType<
+  typeof AST.builders.tsInterfaceDeclaration
+>;
+
 type Data = {
   entity: {
     pascalizedName: string;
@@ -15,9 +19,10 @@ type Data = {
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function getBodyNode(node: unknown, key: 'Args' | 'Blocks' | 'Element') {
-  // @ts-expect-error: Assume that types from external packages are correct
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+function getBodyNode(
+  node: InterfaceDeclaration,
+  key: 'Args' | 'Blocks' | 'Element',
+) {
   return node.body.body.find((node) => {
     if (node.type !== 'TSPropertySignature' || node.key.type !== 'Identifier') {
       return false;
@@ -44,8 +49,7 @@ export function updateSignature(file: string, data: Data): string {
       const argsNode = getBodyNode(path.node, 'Args');
 
       const isArgsKnown =
-        argsNode &&
-        argsNode.typeAnnotation.typeAnnotation.type === 'TSTypeLiteral' &&
+        argsNode?.typeAnnotation?.typeAnnotation?.type === 'TSTypeLiteral' &&
         argsNode.typeAnnotation.typeAnnotation.members.length > 0;
 
       const ArgsNode = isArgsKnown
@@ -63,7 +67,9 @@ export function updateSignature(file: string, data: Data): string {
       return AST.builders.tsInterfaceDeclaration(
         AST.builders.identifier(identifier),
         AST.builders.tsInterfaceBody(
-          [ArgsNode, BlocksNode, ElementNode].filter(Boolean),
+          [ArgsNode, BlocksNode, ElementNode].filter((node) => {
+            return node !== undefined;
+          }),
         ),
       );
     },

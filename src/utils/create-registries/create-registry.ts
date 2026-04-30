@@ -13,9 +13,6 @@ export function createRegistry(file: string, data: Data): string {
 
   const ast = traverse(file);
 
-  // @ts-expect-error: Assume that types from external packages are correct
-  const nodes = ast.program.body;
-
   const registryEntries = AST.builders.tsInterfaceBody([
     AST.builders.tsPropertySignature(
       AST.builders.stringLiteral(data.entity.doubleColonizedName),
@@ -49,7 +46,9 @@ export function createRegistry(file: string, data: Data): string {
 
   registryNode.declare = true;
 
-  nodes.push(registryNode);
+  // @ts-expect-error: Incorrect type
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+  ast.program.body.push(registryNode);
 
   return AST.print(ast);
 }

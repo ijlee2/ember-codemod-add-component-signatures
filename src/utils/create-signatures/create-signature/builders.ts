@@ -1,28 +1,38 @@
 import { AST } from '@codemod-utils/ast-javascript';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function builderConvertArgsToSignature(nodes: unknown[] = []) {
+type InterfaceDeclaration = ReturnType<
+  typeof AST.builders.tsInterfaceDeclaration
+>;
+
+type PropertySignature = ReturnType<typeof AST.builders.tsPropertySignature>;
+
+type TypeParameters = ReturnType<
+  typeof AST.builders.tsTypeParameterInstantiation
+>;
+
+export function builderConvertArgsToSignature(
+  nodes: Parameters<typeof AST.builders.tsTypeLiteral>[0] = [],
+): PropertySignature[] {
   return [
     AST.builders.tsPropertySignature(
       AST.builders.identifier('Args'),
-      // @ts-expect-error: Assume that types from external packages are correct
       AST.builders.tsTypeAnnotation(AST.builders.tsTypeLiteral(nodes)),
       false,
     ),
   ];
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function builderCreateSignature(identifier: string, members: unknown[]) {
+export function builderCreateSignature(
+  identifier: string,
+  members: Parameters<typeof AST.builders.tsInterfaceBody>[0],
+): InterfaceDeclaration {
   return AST.builders.tsInterfaceDeclaration(
     AST.builders.identifier(identifier),
-    // @ts-expect-error: Assume that types from external packages are correct
     AST.builders.tsInterfaceBody(members),
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function builderPassSignature(identifier: string) {
+export function builderPassSignature(identifier: string): TypeParameters {
   return AST.builders.tsTypeParameterInstantiation([
     AST.builders.tsTypeReference(AST.builders.identifier(identifier)),
   ]);
