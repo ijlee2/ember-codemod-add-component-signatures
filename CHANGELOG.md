@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.5.0
+
+### Minor Changes
+
+- [#98](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/98) Fixed lint errors ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.4.5
 
 ### Patch Changes
