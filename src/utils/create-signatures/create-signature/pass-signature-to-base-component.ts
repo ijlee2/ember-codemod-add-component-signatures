@@ -40,19 +40,25 @@ export function passSignatureToBaseComponent(
 
       switch (path.node.callee.name) {
         case 'templateOnlyComponent': {
-          // @ts-expect-error: Assume that types from external packages are correct
+          // @ts-expect-error: Incorrect type
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           typeParameters = path.node.typeParameters;
           break;
         }
 
         case MARKER: {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
           const type = path.parentPath.value.type;
 
           if (type === 'TSSatisfiesExpression') {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             typeParameters =
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
               path.parentPath.value.typeAnnotation.typeParameters;
           } else if (type === 'VariableDeclarator') {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             typeParameters =
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
               path.parentPath.value.id.typeAnnotation.typeAnnotation
                 .typeParameters;
           }
@@ -70,18 +76,21 @@ export function passSignatureToBaseComponent(
       if (!typeParameters) {
         const members = builderConvertArgsToSignature();
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         switch (path.parentPath.node.type) {
           case 'ExportDefaultDeclaration': {
             const identifier = `${data.entity.pascalizedName}Signature`;
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
             const index = path.parentPath.name;
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             path.parentPath.parentPath.value.splice(
               index,
               0,
               builderCreateSignature(identifier, members),
             );
 
-            // @ts-expect-error: Assume that types from external packages are correct
+            // @ts-expect-error: Incorrect type
             path.node.typeParameters = builderPassSignature(identifier);
 
             break;
@@ -89,15 +98,17 @@ export function passSignatureToBaseComponent(
 
           case 'VariableDeclarator': {
             const identifier = `${data.entity.pascalizedName}Signature`;
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
             const index = path.parentPath.parentPath.parentPath.name;
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             path.parentPath.parentPath.parentPath.parentPath.value.splice(
               index,
               0,
               builderCreateSignature(identifier, members),
             );
 
-            // @ts-expect-error: Assume that types from external packages are correct
+            // @ts-expect-error: Incorrect type
             path.node.typeParameters = builderPassSignature(identifier);
 
             break;
@@ -107,27 +118,36 @@ export function passSignatureToBaseComponent(
         return false;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       const typeParameter = typeParameters.params[0]!;
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       switch (typeParameter.type) {
         // When the interface is directly passed to the component
         case 'TSTypeLiteral': {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
           const members = isSignature(typeParameter.members)
-            ? typeParameter.members
-            : builderConvertArgsToSignature(typeParameter.members);
+            ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+              typeParameter.members
+            : // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+              builderConvertArgsToSignature(typeParameter.members);
 
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           switch (path.parentPath.node.type) {
             case 'ExportDefaultDeclaration': {
               const identifier = `${data.entity.pascalizedName}Signature`;
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
               const index = path.parentPath.name;
 
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
               path.parentPath.parentPath.value.splice(
                 index,
                 0,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                 builderCreateSignature(identifier, members),
               );
 
-              // @ts-expect-error: Assume that types from external packages are correct
+              // @ts-expect-error: Incorrect type
               path.node.typeParameters = builderPassSignature(identifier);
 
               break;
@@ -135,15 +155,18 @@ export function passSignatureToBaseComponent(
 
             case 'VariableDeclarator': {
               const identifier = `${data.entity.pascalizedName}Signature`;
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
               const index = path.parentPath.parentPath.parentPath.name;
 
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
               path.parentPath.parentPath.parentPath.parentPath.value.splice(
                 index,
                 0,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
                 builderCreateSignature(identifier, members),
               );
 
-              // @ts-expect-error: Assume that types from external packages are correct
+              // @ts-expect-error: Incorrect type
               path.node.typeParameters = builderPassSignature(identifier);
 
               break;
@@ -157,7 +180,9 @@ export function passSignatureToBaseComponent(
         case 'TSTypeReference': {
           const identifier = `${data.entity.pascalizedName}Signature`;
 
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
           interfaceName = typeParameter.typeName.name;
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           typeParameter.typeName.name = identifier;
 
           return false;
@@ -182,11 +207,14 @@ export function passSignatureToBaseComponent(
       if (!typeParameters) {
         const members = builderConvertArgsToSignature();
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         switch (path.parentPath.node.type) {
           case 'ExportDefaultDeclaration': {
             const identifier = `${data.entity.pascalizedName}Signature`;
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
             const index = path.parentPath.name;
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             path.parentPath.parentPath.value.splice(
               index,
               0,
@@ -200,8 +228,10 @@ export function passSignatureToBaseComponent(
 
           case 'Program': {
             const identifier = `${data.entity.pascalizedName}Signature`;
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             const index = path.name;
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             path.parentPath.value.splice(
               index,
               0,
@@ -227,8 +257,10 @@ export function passSignatureToBaseComponent(
             : builderConvertArgsToSignature(typeParameter.members);
 
           const identifier = `${data.entity.pascalizedName}Signature`;
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
           const index = path.parentPath.name;
 
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
           path.parentPath.parentPath.value.splice(
             index,
             0,
@@ -272,11 +304,14 @@ export function passSignatureToBaseComponent(
       if (!typeParameters) {
         const members = builderConvertArgsToSignature();
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         switch (path.parentPath.node.type) {
           case 'VariableDeclarator': {
             const identifier = `${data.entity.pascalizedName}Signature`;
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
             const index = path.parentPath.parentPath.parentPath.name;
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
             path.parentPath.parentPath.parentPath.parentPath.value.splice(
               index,
               0,
@@ -302,8 +337,10 @@ export function passSignatureToBaseComponent(
             : builderConvertArgsToSignature(typeParameter.members);
 
           const identifier = `${data.entity.pascalizedName}Signature`;
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
           const index = path.parentPath.parentPath.parentPath.name;
 
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
           path.parentPath.parentPath.parentPath.parentPath.value.splice(
             index,
             0,

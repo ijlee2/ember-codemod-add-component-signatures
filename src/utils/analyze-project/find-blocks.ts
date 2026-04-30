@@ -24,7 +24,8 @@ export function findBlocks(templateFile: string): Signature['Blocks'] {
         return key === 'to';
       });
 
-      // @ts-expect-error: Assume that types from external packages are correct
+      // @ts-expect-error: Incorrect type
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       const blockName = normalizeBlockName(toArgument?.value.original);
 
       const positionalArgumentTypes = node.params.map(

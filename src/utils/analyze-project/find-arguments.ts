@@ -18,16 +18,21 @@ function analyzeClass(file: string | undefined): Set<string> {
       this.traverse(node);
 
       if (
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         node.value.object.type !== 'MemberExpression' ||
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         node.value.object.property.type !== 'Identifier' ||
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         node.value.object.property.name !== 'args'
       ) {
         return false;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       switch (node.value.property.type) {
         // Matches the pattern `this.args.someArgument`
         case 'Identifier': {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           args.add(node.value.property.name as string);
 
           break;
@@ -35,6 +40,7 @@ function analyzeClass(file: string | undefined): Set<string> {
 
         // Matches the pattern `this.args['someArgument']`
         case 'StringLiteral': {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           args.add(node.value.property.value as string);
 
           break;
@@ -45,15 +51,20 @@ function analyzeClass(file: string | undefined): Set<string> {
     },
 
     visitVariableDeclarator(node) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const { id: leftHandSide, init: rightHandSide } = node.value;
       let isValid = false;
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       switch (rightHandSide?.type) {
         // Matches the pattern `const { someArgument } = this.args;`
         case 'MemberExpression': {
           if (
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             rightHandSide.object.type !== 'ThisExpression' ||
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             rightHandSide.property.type !== 'Identifier' ||
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             rightHandSide.property.name !== 'args'
           ) {
             break;
@@ -67,9 +78,13 @@ function analyzeClass(file: string | undefined): Set<string> {
         // Matches the pattern `const { someArgument } = this.args as SomeType;`
         case 'TSAsExpression': {
           if (
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             rightHandSide.expression.type !== 'MemberExpression' ||
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             rightHandSide.expression.object.type !== 'ThisExpression' ||
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             rightHandSide.expression.property.type !== 'Identifier' ||
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             rightHandSide.expression.property.name !== 'args'
           ) {
             break;
@@ -85,16 +100,20 @@ function analyzeClass(file: string | undefined): Set<string> {
         return false;
       }
 
-      // @ts-expect-error: Assume that types from external packages are correct
+      // @ts-expect-error: Incorrect type
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       leftHandSide.properties.forEach((property) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         switch (property.key.type) {
           case 'Identifier': {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             args.add(property.key.name as string);
 
             break;
           }
 
           case 'StringLiteral': {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             args.add(property.key.value as string);
 
             break;

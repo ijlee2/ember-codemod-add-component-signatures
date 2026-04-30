@@ -13,7 +13,8 @@ export function createRegistry(file: string, data: Data): string {
 
   const ast = traverse(file);
 
-  // @ts-expect-error: Assume that types from external packages are correct
+  // @ts-expect-error: Incorrect type
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
   const nodes = ast.program.body;
 
   const registryEntries = AST.builders.tsInterfaceBody([
@@ -49,6 +50,7 @@ export function createRegistry(file: string, data: Data): string {
 
   registryNode.declare = true;
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
   nodes.push(registryNode);
 
   return AST.print(ast);

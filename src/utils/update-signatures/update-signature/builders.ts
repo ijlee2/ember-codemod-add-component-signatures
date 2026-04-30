@@ -53,7 +53,7 @@ export function builderCreateArgsNode(signature: Signature) {
 
   return AST.builders.tsPropertySignature(
     AST.builders.identifier('Args'),
-    // @ts-expect-error: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     AST.builders.tsTypeAnnotation(AST.builders.tsTypeLiteral(members)),
     false,
   );
@@ -84,7 +84,7 @@ export function builderCreateBlocksNode(signature: Signature) {
 
   return AST.builders.tsPropertySignature(
     AST.builders.identifier('Blocks'),
-    // @ts-expect-error: Assume that types from external packages are correct
+    // @ts-expect-error: Incorrect type
     AST.builders.tsTypeAnnotation(AST.builders.tsTypeLiteral(members)),
     false,
   );
