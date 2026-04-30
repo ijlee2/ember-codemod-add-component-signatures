@@ -22,7 +22,5 @@ export async function filterComponents(
     workerFilePath: './filter-components/worker.js',
   });
 
-  return new Map(
-    entries.filter((entry) => entry !== undefined),
-  ) as ExtensionMap;
+  return new Map(entries.filter((entry) => entry !== undefined));
 }

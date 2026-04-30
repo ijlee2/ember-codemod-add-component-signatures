@@ -18,7 +18,5 @@ export async function analyzeComponents(
     workerFilePath: './analyze-components/worker.js',
   });
 
-  return new Map(
-    entries.filter((entry) => entry !== undefined),
-  ) as SignatureMap;
+  return new Map(entries.filter((entry) => entry !== undefined));
 }
