@@ -24,9 +24,10 @@ export function findBlocks(templateFile: string): Signature['Blocks'] {
         return key === 'to';
       });
 
-      // @ts-expect-error: Incorrect type
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      const blockName = normalizeBlockName(toArgument?.value.original);
+      const blockName = normalizeBlockName(
+        // @ts-expect-error: Incorrect type
+        toArgument?.value?.original as string | undefined,
+      );
 
       const positionalArgumentTypes = node.params.map(
         ({ type: recastType }) => {

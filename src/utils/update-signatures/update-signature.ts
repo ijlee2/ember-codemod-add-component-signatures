@@ -7,6 +7,10 @@ import {
   builderCreateElementNode,
 } from './update-signature/builders.js';
 
+type InterfaceDeclaration = ReturnType<
+  typeof AST.builders.tsInterfaceDeclaration
+>;
+
 type Data = {
   entity: {
     pascalizedName: string;
@@ -15,16 +19,15 @@ type Data = {
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function getBodyNode(node: unknown, key: 'Args' | 'Blocks' | 'Element') {
-  // @ts-expect-error: Incorrect type
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
+function getBodyNode(
+  node: InterfaceDeclaration,
+  key: 'Args' | 'Blocks' | 'Element',
+) {
   return node.body.body.find((node) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (node.type !== 'TSPropertySignature' || node.key.type !== 'Identifier') {
       return false;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     return node.key.name === key;
   });
 }
@@ -43,28 +46,20 @@ export function updateSignature(file: string, data: Data): string {
         return false;
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const argsNode = getBodyNode(path.node, 'Args');
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const isArgsKnown =
-        argsNode &&
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        argsNode.typeAnnotation.typeAnnotation.type === 'TSTypeLiteral' &&
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        argsNode?.typeAnnotation?.typeAnnotation?.type === 'TSTypeLiteral' &&
         argsNode.typeAnnotation.typeAnnotation.members.length > 0;
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const ArgsNode = isArgsKnown
         ? argsNode
         : builderCreateArgsNode(data.signature);
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const BlocksNode =
         getBodyNode(path.node, 'Blocks') ??
         builderCreateBlocksNode(data.signature);
 
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const ElementNode =
         getBodyNode(path.node, 'Element') ??
         builderCreateElementNode(data.signature);
@@ -72,8 +67,9 @@ export function updateSignature(file: string, data: Data): string {
       return AST.builders.tsInterfaceDeclaration(
         AST.builders.identifier(identifier),
         AST.builders.tsInterfaceBody(
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-          [ArgsNode, BlocksNode, ElementNode].filter(Boolean),
+          [ArgsNode, BlocksNode, ElementNode].filter((node) => {
+            return node !== undefined;
+          }),
         ),
       );
     },
