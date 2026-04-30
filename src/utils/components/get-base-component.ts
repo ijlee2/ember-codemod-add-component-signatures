@@ -26,7 +26,7 @@ export function getBaseComponent(file: string): BaseComponent {
           }
 
           baseComponentName = defaultImport.local!.name as string;
-          importPath = path.node.source.value as string;
+          importPath = path.node.source.value;
 
           return false;
         }
@@ -41,7 +41,7 @@ export function getBaseComponent(file: string): BaseComponent {
           }
 
           baseComponentName = namedImport.local!.name as string;
-          importPath = path.node.source.value as string;
+          importPath = path.node.source.value;
 
           return false;
         }
