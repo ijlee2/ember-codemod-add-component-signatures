@@ -11,11 +11,9 @@ type Options = {
 };
 
 export function updateReferences(file: string, options: Options): string {
-  const traverse = AST.traverse(true);
-
   const { baseComponentName, componentName, data } = options;
 
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitExportDefaultDeclaration(path) {
       switch (path.node.declaration.type) {
         case 'CallExpression': {

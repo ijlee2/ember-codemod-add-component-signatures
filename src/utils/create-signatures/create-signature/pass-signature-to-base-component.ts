@@ -27,12 +27,10 @@ export function passSignatureToBaseComponent(
   interfaceName: string | undefined;
   newFile: string;
 } {
-  const traverse = AST.traverse(true);
-
   const { baseComponentName, data } = options;
   let interfaceName: string | undefined;
 
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitCallExpression(path) {
       if (path.node.callee.type !== 'Identifier') {
         return false;

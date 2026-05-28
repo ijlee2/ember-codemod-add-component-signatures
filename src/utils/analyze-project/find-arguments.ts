@@ -10,10 +10,7 @@ function analyzeClass(file: string | undefined): Set<string> {
     return args;
   }
 
-  // We know that the file is in TypeScript
-  const traverse = ASTJavaScript.traverse(true);
-
-  traverse(file, {
+  ASTJavaScript.traverse(file, {
     visitMemberExpression(path) {
       this.traverse(path);
 
@@ -115,10 +112,9 @@ function analyzeClass(file: string | undefined): Set<string> {
 }
 
 function analyzeTemplate(file: string): Set<string> {
-  const traverse = ASTTemplate.traverse();
   const args = new Set<string>();
 
-  traverse(file, {
+  ASTTemplate.traverse(file, {
     PathExpression(node) {
       if (node.head.type !== 'AtHead') {
         return;

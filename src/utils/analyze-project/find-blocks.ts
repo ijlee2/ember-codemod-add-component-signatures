@@ -7,11 +7,9 @@ import {
 } from '../components/index.js';
 
 export function findBlocks(templateFile: string): Signature['Blocks'] {
-  const traverse = AST.traverse();
-
   const blocksMap = new Map<string, string[]>();
 
-  traverse(templateFile, {
+  AST.traverse(templateFile, {
     MustacheStatement(node) {
       if (
         node.path.type !== 'PathExpression' ||
