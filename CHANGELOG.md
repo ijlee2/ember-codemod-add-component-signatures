@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.0
+
+### Minor Changes
+
+- [#102](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/102) Updated dependencies (`@codemod-utils/ast-javascript` and `@codemod-utils/ast-template` to v4) ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.5.2
 
 ### Patch Changes
