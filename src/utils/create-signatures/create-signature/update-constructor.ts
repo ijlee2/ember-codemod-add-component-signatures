@@ -9,11 +9,9 @@ type Options = {
 };
 
 export function updateConstructor(file: string, options: Options): string {
-  const traverse = AST.traverse(true);
-
   const { data } = options;
 
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitClassMethod(path) {
       if (path.node.kind !== 'constructor' || path.node.params.length !== 2) {
         return false;

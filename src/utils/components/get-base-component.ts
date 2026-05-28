@@ -6,12 +6,10 @@ type BaseComponent = {
 };
 
 export function getBaseComponent(file: string): BaseComponent {
-  const traverse = AST.traverse(true);
-
   let baseComponentName: string | undefined;
   let importPath: string | undefined;
 
-  traverse(file, {
+  AST.traverse(file, {
     visitImportDeclaration(path) {
       switch (path.node.source.value) {
         case '@ember/component':

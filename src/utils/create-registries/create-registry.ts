@@ -9,9 +9,7 @@ type Data = {
 };
 
 export function createRegistry(file: string, data: Data): string {
-  const traverse = AST.traverse(true);
-
-  const ast = traverse(file);
+  const ast = AST.traverse(file);
 
   const registryEntries = AST.builders.tsInterfaceBody([
     AST.builders.tsPropertySignature(

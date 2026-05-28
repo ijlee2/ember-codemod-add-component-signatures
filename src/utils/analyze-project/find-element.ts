@@ -4,11 +4,9 @@ import type { Signature } from '../../types/index.js';
 import { getHtmlInterface } from '../components/index.js';
 
 export function findElement(templateFile: string): Signature['Element'] {
-  const traverse = AST.traverse();
-
   const htmlInterfaces = new Set<string>();
 
-  traverse(templateFile, {
+  AST.traverse(templateFile, {
     ElementNode(node) {
       const hasSplattributes = node.attributes.find(({ name }) => {
         return name === '...attributes';

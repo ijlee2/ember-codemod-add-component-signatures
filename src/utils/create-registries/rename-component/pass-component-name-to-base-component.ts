@@ -16,12 +16,10 @@ export function passComponentNameToBaseComponent(
   componentName: string;
   newFile: string;
 } {
-  const traverse = AST.traverse(true);
-
   const { baseComponentName, data } = options;
   let componentName!: string;
 
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitClassDeclaration(path) {
       if (
         !path.node.superClass ||

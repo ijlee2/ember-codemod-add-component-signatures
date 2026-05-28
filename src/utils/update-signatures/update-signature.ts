@@ -33,11 +33,9 @@ function getBodyNode(
 }
 
 export function updateSignature(file: string, data: Data): string {
-  const traverse = AST.traverse(true);
-
   const identifier = `${data.entity.pascalizedName}Signature`;
 
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitTSInterfaceDeclaration(path) {
       if (
         path.node.id.type !== 'Identifier' ||

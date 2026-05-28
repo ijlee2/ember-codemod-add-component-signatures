@@ -16,11 +16,9 @@ type Options = {
 };
 
 export function updateReferences(file: string, options: Options): string {
-  const traverse = AST.traverse(true);
-
   const { interfaceName, data } = options;
 
-  const ast = traverse(file, {
+  const ast = AST.traverse(file, {
     visitTSInterfaceDeclaration(path) {
       if (
         path.node.id.type !== 'Identifier' ||
