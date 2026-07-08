@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.2
+
+### Patch Changes
+
+- [#104](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/104) Updated dependencies (eslint@v10, typescript@v6) ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.6.1
 
 ### Patch Changes
