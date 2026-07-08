@@ -38,7 +38,7 @@ type Options = {
   createRegistries: boolean;
   entity: string | undefined;
   projectRoot: string;
-  src: 'app' | 'addon' | 'src';
+  src: 'addon' | 'app' | 'src';
 };
 
 export type {
