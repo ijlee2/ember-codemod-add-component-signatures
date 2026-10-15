@@ -18,7 +18,7 @@ export function createSignature(file: string, data: Data): string {
     return file;
   }
 
-  // eslint-disable-next-line prefer-const
+  // oxlint-disable-next-line eslint/prefer-const
   let { interfaceName, newFile } = passSignatureToBaseComponent(file, {
     baseComponentName,
     data,

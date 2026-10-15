@@ -4,7 +4,7 @@ import type { Signature } from '../../../types/index.js';
 
 type PropertySignature = ReturnType<typeof AST.builders.tsPropertySignature>;
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// oxlint-disable-next-line typescript/explicit-function-return-type
 function builderConvertTsTypeToKeyword(tsType: string) {
   switch (tsType) {
     case 'boolean': {

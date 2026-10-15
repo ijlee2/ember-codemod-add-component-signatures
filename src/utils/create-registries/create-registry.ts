@@ -45,7 +45,7 @@ export function createRegistry(file: string, data: Data): string {
   registryNode.declare = true;
 
   // @ts-expect-error: Incorrect type
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+  // oxlint-disable-next-line typescript/no-unsafe-call, typescript/no-unsafe-member-access
   ast.program.body.push(registryNode);
 
   return AST.print(ast);
