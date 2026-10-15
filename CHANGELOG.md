@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.6
+
+### Patch Changes
+
+- [#112](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/112) Updated dependencies (replaced eslint with oxlint) ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.6.5
 
 ### Patch Changes
