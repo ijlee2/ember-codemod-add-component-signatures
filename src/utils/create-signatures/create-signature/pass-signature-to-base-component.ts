@@ -40,7 +40,6 @@ export function passSignatureToBaseComponent(
 
       switch (path.node.callee.name) {
         case 'templateOnlyComponent': {
-          // @ts-expect-error: Incorrect type
           typeParameters = path.node.typeParameters as TypeParameters;
 
           break;
@@ -93,7 +92,6 @@ export function passSignatureToBaseComponent(
               builderCreateSignature(identifier, members),
             );
 
-            // @ts-expect-error: Incorrect type
             path.node.typeParameters = builderPassSignature(identifier);
 
             break;
@@ -114,7 +112,6 @@ export function passSignatureToBaseComponent(
               builderCreateSignature(identifier, members),
             );
 
-            // @ts-expect-error: Incorrect type
             path.node.typeParameters = builderPassSignature(identifier);
 
             break;
@@ -150,7 +147,6 @@ export function passSignatureToBaseComponent(
                 builderCreateSignature(identifier, members),
               );
 
-              // @ts-expect-error: Incorrect type
               path.node.typeParameters = builderPassSignature(identifier);
 
               break;
@@ -171,7 +167,6 @@ export function passSignatureToBaseComponent(
                 builderCreateSignature(identifier, members),
               );
 
-              // @ts-expect-error: Incorrect type
               path.node.typeParameters = builderPassSignature(identifier);
 
               break;
