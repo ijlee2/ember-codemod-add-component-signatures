@@ -1,5 +1,12 @@
 # Changelog
 
+## 5.6.7
+
+### Patch Changes
+
+- [#114](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/114) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+- [#113](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/113) Introduced trusted publishing ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.6.6
 
 ### Patch Changes
