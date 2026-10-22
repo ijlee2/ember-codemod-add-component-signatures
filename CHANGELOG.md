@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.8
+
+### Patch Changes
+
+- [#115](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/115) Updated @codemod-utils/ast-template to 4.1.3 (@glimmer/syntax to 0.97.0) ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.6.7
 
 ### Patch Changes
