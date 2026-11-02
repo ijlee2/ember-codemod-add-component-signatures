@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.6.9
+
+### Patch Changes
+
+- [#116](https://github.com/ijlee2/ember-codemod-add-component-signatures/pull/116) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 5.6.8
 
 ### Patch Changes
