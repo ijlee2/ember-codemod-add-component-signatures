@@ -41,67 +41,67 @@ export default class UiFormComponent extends Component<UiFormSignature> {
   }
 
   <template>{{#let (uniqueId) as |formId|}}
-  <form
-  aria-describedby={{if @instructions (concat formId "-instructions")}}
-  aria-labelledby={{if @title (concat formId "-title")}}
-  class={{styles.form}}
-  data-test-form={{if @title @title ""}}
-  {{autofocus}}
-  {{on "submit" this.submitForm}}
-  >
-  <UiFormInformation
-  @formId={{formId}}
-  @instructions={{@instructions}}
-  @title={{@title}}
-  />
+      <form
+        aria-describedby={{if @instructions (concat formId "-instructions")}}
+        aria-labelledby={{if @title (concat formId "-title")}}
+        class={{styles.form}}
+        data-test-form={{if @title @title ""}}
+        {{autofocus}}
+        {{on "submit" this.submitForm}}
+      >
+        <UiFormInformation
+          @formId={{formId}}
+          @instructions={{@instructions}}
+          @title={{@title}}
+        />
 
-  <ContainerQuery @features={{hash wide=(width min=480)}} as |CQ|>
-  {{yield
-    (hash
-      Checkbox=(component
-        UiFormCheckbox
-        data=this.data
-        isInline=true
-        isWide=CQ.features.wide
-        onUpdate=this.updateData
-      )
-      Input=(component
-        UiFormInput
-        data=this.data
-        isWide=CQ.features.wide
-        onUpdate=this.updateData
-      )
-      Number=(component
-        UiFormNumber
-        data=this.data
-        isWide=CQ.features.wide
-        onUpdate=this.updateData
-      )
-      Select=(component
-        UiFormSelect
-        data=this.data
-        isWide=CQ.features.wide
-        onUpdate=this.updateData
-      )
-      Textarea=(component
-        UiFormTextarea
-        data=this.data
-        isWide=CQ.features.wide
-        onUpdate=this.updateData
-      )
-    )
-  }}
-  </ContainerQuery>
+        <ContainerQuery @features={{hash wide=(width min=480)}} as |CQ|>
+          {{yield
+            (hash
+              Checkbox=(component
+                UiFormCheckbox
+                data=this.data
+                isInline=true
+                isWide=CQ.features.wide
+                onUpdate=this.updateData
+              )
+              Input=(component
+                UiFormInput
+                data=this.data
+                isWide=CQ.features.wide
+                onUpdate=this.updateData
+              )
+              Number=(component
+                UiFormNumber
+                data=this.data
+                isWide=CQ.features.wide
+                onUpdate=this.updateData
+              )
+              Select=(component
+                UiFormSelect
+                data=this.data
+                isWide=CQ.features.wide
+                onUpdate=this.updateData
+              )
+              Textarea=(component
+                UiFormTextarea
+                data=this.data
+                isWide=CQ.features.wide
+                onUpdate=this.updateData
+              )
+            )
+          }}
+        </ContainerQuery>
 
-  <div class={{styles.actions}}>
-  <button
-    class={{styles.submit-button}}
-    data-test-button="Submit"
-    type="submit"
-  >
-    {{t "components.ui.form.submit"}}
-  </button>
-  </div>
-  </form>
-  {{/let}}</template>
+        <div class={{styles.actions}}>
+          <button
+            class={{styles.submit-button}}
+            data-test-button="Submit"
+            type="submit"
+          >
+            {{t "components.ui.form.submit"}}
+          </button>
+        </div>
+      </form>
+    {{/let}}</template>
 }
